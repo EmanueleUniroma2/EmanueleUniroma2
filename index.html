@@ -195,6 +195,21 @@
 				]
 			];
 			
+			var DB_SKILLS = [
+				[
+					"Mongo DB",
+					3
+				],
+				[
+					"SQL",
+					3
+				],
+				[
+					"Maria DB",
+					1
+				],
+			];
+			
 			var FRAM_SKILLS = [
 				[
 					".NET Framework",
@@ -528,6 +543,8 @@
 
 					LANG_SKILLS.sort(sortTechSkills);
 					FRAM_SKILLS.sort(sortTechSkills);
+					DB_SKILLS.sort(sortTechSkills);
+
 					let techlegend = "Experience legend:<br>"+toStars(1)+": 1-11 months<br>"+toStars(2)+": 1-2 years<br>"+toStars(3)+": 2-3 years<br>"+toStars(4)+": 3-4 years<br>"+toStars(5)+": 4 or more years";
 					let commlegend = "Level legend:<br>"+toStars(1)+": Still learning<br>"+toStars(2)+": Barely able<br>"+toStars(3)+": Good<br>"+toStars(4)+": Smooth<br>"+toStars(5)+": Excellent";
 
@@ -537,17 +554,23 @@
 					}
 					d.appendChild(s);
 					
-					let s1 = createSection("Technologies",techlegend);
-					for(let i = 0; i < FRAM_SKILLS.length; i++){
-						s1.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
+					let s1 = createSection("Databases",techlegend);
+					for(let i = 0; i < DB_SKILLS.length; i++){
+						s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
 					}
 					d.appendChild(s1);
 					
-					let s2 = createSection("Communications Skills",commlegend);
-					for(let i = 0; i < COMM_SKILLS.length; i++){
-						s2.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
+					let s2 = createSection("Technologies",techlegend);
+					for(let i = 0; i < FRAM_SKILLS.length; i++){
+						s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
 					}
 					d.appendChild(s2);
+					
+					let s3 = createSection("Communications Skills",commlegend);
+					for(let i = 0; i < COMM_SKILLS.length; i++){
+						s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
+					}
+					d.appendChild(s3);
 				}
 			}
 		</script>
