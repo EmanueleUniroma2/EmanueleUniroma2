@@ -78,6 +78,7 @@
 			.personal-info-table{
 				display:inline-block;
 				color: var(--primary-highlighted-text);
+				font-size: 1em;
 			}
 			.work-info-table{
 				display:inline-block;
@@ -87,6 +88,7 @@
 				margin-right: 2em;
 				margin-bottom: 1em;
 				border-bottom: 1px solid var(--primary-highlighted-text);
+				font-size: 1em;
 			}
 			td
 			{
@@ -127,6 +129,12 @@
 			}
 			.content{
 				padding-bottom: 3em;
+			}
+			.self-desc{
+				width: 85vw;
+				max-width: 1600px;
+				line-height: 20px;
+				font-size: min(3.5vw,1em);
 			}
 		</style>
 		
@@ -258,6 +266,10 @@
 				[
 					"Microsoft PowerAutomate",
 					3
+				],
+				[
+					"WinAutomation",
+					1
 				],
 				[
 					"WinAutomation",
@@ -494,6 +506,12 @@
 				return t;
 			}
 		
+			function addPageBreak(){
+				let d = document.createElement("div");
+				d.innerHTML = "<p style=\"page-break-before: always\">";
+				return d;
+			}
+		
 			function createSection(title, legend){
 				let s = document.createElement("div");
 				s.className = "section";
@@ -519,6 +537,20 @@
 			  return 0;
 			}
 		
+			function getDescNode(){
+				let desc = document.createElement("div");
+				desc.innerHTML = "I'm a passionate programmer. "+
+				"I love diving into problem solving and i always try learn new ways to solve problems. I'm always looking for a chance to learn new technologies and improve my knowledge on different areas. "+
+				"I can work in teams and relate with other coworkers in a constructive way. In the past i have worked using different approcaches, such as Agile, Waterfall or SCRUM. I am dynamic in learing and "+
+				"proficient in managing my time to deliver projects even under huge loads or pressure."+
+				""+
+				""+
+				""+
+				"";
+				desc.className = "self-desc";
+				return desc;
+			}
+		
 			function initPage(page){
 				document.body.scrollTop = 0;
 				
@@ -529,16 +561,26 @@
 					d.removeChild(d.firstChild);
 				}
 			
+			
 				if(page == 0){
 					document.getElementById("page-title-div").innerHTML = "Profile";
+					let s = createSection("About me", null);
+					s.appendChild(getDescNode());
+					d.appendChild(s);
+					d.appendChild(addPageBreak());
+				}
+			
+				if(page == 1){
+					document.getElementById("page-title-div").innerHTML = "Jobs";
 					let s = createSection("Work Experience", null);
 					for(let i = 0; i < WORK_EXP.length; i++){
 						s.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
 					}
 					d.appendChild(s);
+					d.appendChild(addPageBreak());
 				}
 				
-				if(page == 1){
+				if(page == 2){
 					document.getElementById("page-title-div").innerHTML = "Skills";
 
 					LANG_SKILLS.sort(sortTechSkills);
@@ -553,33 +595,106 @@
 						s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
 					}
 					d.appendChild(s);
-					
+					d.appendChild(addPageBreak());
+
 					let s1 = createSection("Databases",techlegend);
 					for(let i = 0; i < DB_SKILLS.length; i++){
 						s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
 					}
 					d.appendChild(s1);
+					d.appendChild(addPageBreak());
 					
 					let s2 = createSection("Technologies",techlegend);
 					for(let i = 0; i < FRAM_SKILLS.length; i++){
 						s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
 					}
 					d.appendChild(s2);
+					d.appendChild(addPageBreak());
 					
 					let s3 = createSection("Communications Skills",commlegend);
 					for(let i = 0; i < COMM_SKILLS.length; i++){
 						s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
 					}
 					d.appendChild(s3);
+					d.appendChild(addPageBreak());
 				}
+				
+				if(page == 3){
+					document.getElementById("page-title-div").innerHTML = "Curriculum Vitae";
+					
+					
+					let s00 = createSection("About me", null);
+					s00.appendChild(getDescNode());
+					d.appendChild(s00);
+					d.appendChild(addPageBreak());
+					
+					let s0 = createSection("Work Experience", null);
+					for(let i = 0; i < WORK_EXP.length; i++){
+						s0.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
+					}
+					d.appendChild(s0);
+					d.appendChild(addPageBreak());
+
+					LANG_SKILLS.sort(sortTechSkills);
+					FRAM_SKILLS.sort(sortTechSkills);
+					DB_SKILLS.sort(sortTechSkills);
+
+					let techlegend = "Experience legend:<br>"+toStars(1)+": 1-11 months<br>"+toStars(2)+": 1-2 years<br>"+toStars(3)+": 2-3 years<br>"+toStars(4)+": 3-4 years<br>"+toStars(5)+": 4 or more years";
+					let commlegend = "Level legend:<br>"+toStars(1)+": Still learning<br>"+toStars(2)+": Barely able<br>"+toStars(3)+": Good<br>"+toStars(4)+": Smooth<br>"+toStars(5)+": Excellent";
+
+					let s = createSection("Programming, Scripting and Markup Languages", techlegend);
+					for(let i = 0; i < LANG_SKILLS.length; i++){
+						s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
+					}
+					d.appendChild(s);
+					d.appendChild(addPageBreak());
+
+					let s1 = createSection("Databases",techlegend);
+					for(let i = 0; i < DB_SKILLS.length; i++){
+						s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
+					}
+					d.appendChild(s1);
+					d.appendChild(addPageBreak());
+
+					let s2 = createSection("Technologies",techlegend);
+					for(let i = 0; i < FRAM_SKILLS.length; i++){
+						s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
+					}
+					d.appendChild(s2);
+					d.appendChild(addPageBreak());
+
+					let s3 = createSection("Communications Skills",commlegend);
+					for(let i = 0; i < COMM_SKILLS.length; i++){
+						s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
+					}
+					d.appendChild(s3);
+					d.appendChild(addPageBreak());
+
+					setTimeout(downloadAsCV,500);
+				}	
+			}
+			
+			function downloadAsCV(){
+				document.getElementById("nav-tabs-div").style.display = "none";
+				document.getElementById("footer-div").style.display = "none";
+				document.body.style.fontSize = "0.8rem";
+				window.onafterprint = function(){
+					document.getElementById("nav-tabs-div").style.display = "block";
+					document.getElementById("footer-div").style.display = "block";
+					document.body.style.fontSize = "";
+					initPage(0);
+				}
+				window.print();  
 			}
 		</script>
 	</head>
 	
 	<body onload="initPage(0);">
-		<div class="nav-tabs">
+		<div class="nav-tabs" id="nav-tabs-div">
 			<div class="nav-voice" onclick="initPage(0);">Profile</div>
-			<div class="nav-voice" onclick="initPage(1);">Skills</div>
+			<div class="nav-voice" onclick="initPage(1);">Jobs</div>
+			<div class="nav-voice" onclick="initPage(2);">Skills</div>
+			<div class="nav-voice" onclick="initPage(3);">Download</div>
 		</div>
 		
 		<div class="page-title" id="page-title-div"></div>
@@ -601,7 +716,6 @@
 				</table>
 			</div>
 		</div>
-		
 		<div class="content" id="content-div"></div>
 		<div class="footer" id="footer-div"></div>
 	</body>
