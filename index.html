@@ -670,7 +670,7 @@
 					d.appendChild(s3);
 					d.appendChild(addPageBreak());
 
-					setTimeout(downloadAsCV,500);
+					downloadAsCV();
 				}	
 			}
 			
@@ -678,12 +678,12 @@
 				document.getElementById("nav-tabs-div").style.display = "none";
 				document.getElementById("footer-div").style.display = "none";
 				document.body.style.fontSize = "0.8rem";
-				window.onafterprint = function(){
-					document.getElementById("nav-tabs-div").style.display = "block";
-					document.getElementById("footer-div").style.display = "block";
-					document.body.style.fontSize = "";
-				}
-				setTimeout(function(){window.print();},300);  
+				setTimeout(function(){
+					window.onafterprint = function(){
+						location.reload();
+					}
+					window.print();
+				},400);  
 			}
 		</script>
 	</head>
@@ -693,7 +693,7 @@
 			<div class="nav-voice" onclick="initPage(0);">Profile</div>
 			<div class="nav-voice" onclick="initPage(1);">Jobs</div>
 			<div class="nav-voice" onclick="initPage(2);">Skills</div>
-			<div class="nav-voice" onclick="initPage(3);">CV</div>
+			<div class="nav-voice" onclick="initPage(3);">Download</div>
 		</div>
 		
 		<div class="page-title" id="page-title-div"></div>
