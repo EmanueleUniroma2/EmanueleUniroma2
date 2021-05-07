@@ -670,7 +670,7 @@
 					d.appendChild(s3);
 					d.appendChild(addPageBreak());
 
-					downloadAsCV();
+					setTimeout(downloadAsCV,200);
 				}	
 			}
 			
@@ -679,16 +679,28 @@
 				document.getElementById("footer-div").style.display = "none";
 				document.body.style.fontSize = "0.8rem";
 				setTimeout(function(){
-					window.onafterprint = function(){
-						location.reload();
-					}
 					window.print();
 				},400);  
+			}
+			
+			function setUp(){
+				document.body.ontouchstart = function(){
+					document.getElementById("nav-tabs-div").style.display = "";
+					document.getElementById("footer-div").style.display = "";
+					document.body.style.fontSize = "";
+				};
+				document.body.onclick = function(){
+					document.getElementById("nav-tabs-div").style.display = "";
+					document.getElementById("footer-div").style.display = "";
+					document.body.style.fontSize = "";
+				};
+				
+				initPage(0);
 			}
 		</script>
 	</head>
 	
-	<body onload="initPage(0);">
+	<body onload="setUp();">
 		<div class="nav-tabs" id="nav-tabs-div">
 			<div class="nav-voice" onclick="initPage(0);">Profile</div>
 			<div class="nav-voice" onclick="initPage(1);">Jobs</div>
