@@ -1,918 +1,936 @@
 <html lang="it">
-	<head>
-		<title>Emanuele Serrao</title>
-	
-		<meta charset="UTF-8">
-	
-		<link rel="icon" type="image/png" href="./favicon.png"/>
+  <head>
+    <title>Emanuele Serrao</title>
 
-		<meta name="author" content="Emanuele Serrao">
-		<meta name="description" content="The professional profile of Serrao Emanuele (IT).">
+    <meta charset="UTF-8" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./favicon.png" />
 
-		<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
-		<meta http-equiv="cache-control" content="max-age=0" />
-		<meta http-equiv="expires" content="0" />
-		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-		<meta http-equiv="pragma" content="no-cache" />
+    <meta name="author" content="Emanuele Serrao" />
+    <meta
+      name="description"
+      content="The professional profile of Serrao Emanuele (IT)."
+    />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<style>
-			:root{
-				--primary-background: rgba(0,0,0,1);
-				--primary-toolbar-background: rgba(247, 247, 247,1);
-				--primary-title-font-color: rgba(0,0,0,1);
-				--primary-border-color: rgba(0,0,0,0.3);
-				--primary-highlighted-text: rgba(41, 142, 214,1);
-			}
-			html{
-				font-family: sans-serif, arial;
-			}
-			body{
-				margin:0;
-			}
-		
-			.nav-tabs{
-				position: fixed;
-				left:0;
-				top:0;
-				width:100vw;
-				font-size: min(3vw,1em);
-				background: var(--primary-toolbar-background);
-				color: var(--primary-title-font-color);
-			        border-bottom: 1px solid var(--primary-border-color);
-			        border-top: 1px solid var(--primary-border-color);
-			}
-			.page-title{
-				font-size: min(8vw,2em);
-				color: var(--primary-title-font-color);
-				margin:1em;
-				margin-top: 2.5em;
-				margin-bottom:0;
-			}
-			.section-title{
-				font-size: min(6vw,1.5em);
-				color: var(--primary-title-font-color);
-				margin-bottom:1em;
-			}
-			.section-legend{
-				margin-top: -1.5em;
-				font-size: min(2.5vw,1em);
-				margin-bottom: 1.5em;	
-				margin-left:0.2em;
-			}
-			.section{
-				margin: 1em;
-				padding: 1em;
-			}
-			.profile-pic{
-				width: min(20vw, 200px);
-				height: min(25vw, 230px);
-				object-fit: cover;
-				border-radius: 50%;
-				min-width:100px;
-				min-height: 110px;
-				margin:1em;
-				margin-left:0;
-			}
-			.personal-info-table{
-				display:inline-block;
-				color: var(--primary-highlighted-text);
-				font-size: 1em;
-			        max-width: 800px;
-			}
-			.work-info-table{
-				display:inline-block;
-				color: var(--primary-highlighted-text);
-				width: 40em;
-				max-width: 80vw;
-				margin-right: 2em;
-				margin-bottom: 1em;
-				border-bottom: 1px solid var(--primary-highlighted-text);
-				font-size: 1em;
-			}
-			td
-			{
-				font-size: min(3vw,1em);
-				min-width: 10em;
-				padding: 5px;
-			}
-			.nav-voice{
-				display: inline-block;
-				padding: 1em;
-				border: 1px solid var(--primary-border-color);
-				cursor: pointer;
-				user-select: none;
-				min-width: 50px;
-				width: 6vw;
-				max-width: 150px;
-				text-align: center;
-				background: white;
-			}
-			.nav-voice:hover{
-				background: #f1f1f1;
-			}
-			.nav-voice:active{
-				background: #d6d6d6;
-			}
-			.inline-star{
-				height: 1em;
-			}
-			.footer{
-				position: fixed;
-				left:0;
-				bottom:0;
-				padding: 1em;
-				width:100vw;
-				font-size: min(3vw,1em);
-				background: var(--primary-toolbar-background);
-				color: var(--primary-title-font-color);
-			        border-bottom: 1px solid var(--primary-border-color);
-			        border-top: 1px solid var(--primary-border-color);				
-			}
-			.content{
-				padding-bottom: 3em;
-			}
-			.self-desc{
-				width: 85vw;
-				max-width: 1600px;
-				line-height: 20px;
-				font-size: min(3.5vw,1em);
-			}
-		</style>
-		
-		<script type="text/javascript">
+    <meta
+      http-equiv="cache-control"
+      content="no-cache, must-revalidate, post-check=0, pre-check=0"
+    />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
 
-			var LANG_SKILLS = [
-				[
-					"C++",
-					3
-				],
-				[
-					"C",
-					2
-				],
-				[
-					"C#",
-					4
-				],
-				[
-					"Typescript",
-					4
-				],
-				[
-					"VBscript",
-					1
-				],
-				[
-					"Elixir 1",
-					1
-				],
-				[
-					"AMPL",
-					2
-				],
-				[
-					"Java",
-					3
-				],
-				[
-					"Python 2",
-					3
-				],
-				[
-					"Python 3",
-					3
-				],
-				[
-					"HTML",
-					5
-				],
-				[
-					"Javascript",
-					5
-				],
-				[
-					"CSS | SCSS",
-					5
-				],
-				[
-					"SQL",
-					3
-				],
-				[
-					"BASH",
-					2
-				]
-			];
-			
-			var DB_SKILLS = [
-				[
-					"Mongo DB",
-					2
-				],
-				[
-					"Cosmos DB",
-					3
-				],
-				[
-					"SQL",
-					3
-				],
-				[
-					"Maria DB",
-					2
-				],
-			];
-			
-			var CERTS = [
-				[
-					"AZ-204",
-					"Microsoft",
-					"December 2021"
-				],
-				[
-					"PL-400",
-					"Microsoft",
-					"June 2021"
-				]
-			]
+    <style>
+      :root {
+        --primary-background: rgba(0, 0, 0, 1);
+        --primary-toolbar-background: rgba(247, 247, 247, 1);
+        --primary-title-font-color: rgba(0, 0, 0, 1);
+        --primary-border-color: rgba(0, 0, 0, 0.3);
+        --primary-highlighted-text: rgba(41, 142, 214, 1);
+      }
+      html {
+        font-family: sans-serif, arial;
+      }
+      body {
+        margin: 0;
+      }
 
-			var FRAM_SKILLS = [
-				[
-					".NET Framework",
-					4
-				],
-				[
-					".NET Core",
-					4
-				],
-				[
-					"React.js",
-					5
-				],
-				[
-					"Angular4",
-					3
-				],
-				[
-					"Bootstrap",
-					3
-				],
-				[
-					"Spring",
-					1
-				],
-				[
-					"Azure Devops",
-					4
-				],
-				[
-					"Mongo Atlas",
-					2
-				],
-				[
-					"Junit",
-					2
-				],
-				[
-					"Openshift",
-					1
-				],
-				[
-					"Docker",
-					1
-				],
-				[
-					"Azure Cloud",
-					3
-				],
-				[
-					"AWS",
-					2
-				],
-				[
-					"Microsoft PowerApps",
-					4
-				],
-				[
-					"Microsoft Flow",
-					4
-				],
-				[
-					"WinAutomation",
-					1
-				]
-			];
-			
-			var COMM_SKILLS = [
-				[
-					"Itaian",
-					5,
-					5,
-					5,
-					5,
-					"Mother tongue"
-				],
-				[
-					"English",
-					4,
-					4,
-					4,
-					3,
-					"B2"
-				]
-			];
+      .nav-tabs {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        font-size: min(3vw, 1em);
+        background: var(--primary-toolbar-background);
+        color: var(--primary-title-font-color);
+        border-bottom: 1px solid var(--primary-border-color);
+        border-top: 1px solid var(--primary-border-color);
+      }
+      .page-title {
+        font-size: min(8vw, 2em);
+        color: var(--primary-title-font-color);
+        margin: 1em;
+        margin-top: 2.5em;
+        margin-bottom: 0;
+      }
+      .section-title {
+        font-size: min(6vw, 1.5em);
+        color: var(--primary-title-font-color);
+        margin-bottom: 1em;
+      }
+      .section-legend {
+        margin-top: -1.5em;
+        font-size: min(2.5vw, 1em);
+        margin-bottom: 1.5em;
+        margin-left: 0.2em;
+      }
+      .section {
+        margin: 1em;
+        padding: 1em;
+      }
+      .profile-pic {
+        width: min(20vw, 200px);
+        height: min(25vw, 230px);
+        object-fit: cover;
+        border-radius: 50%;
+        min-width: 100px;
+        min-height: 110px;
+        margin: 1em;
+        margin-left: 0;
+      }
+      .personal-info-table {
+        display: inline-block;
+        color: var(--primary-highlighted-text);
+        font-size: 1em;
+        max-width: 800px;
+      }
+      .work-info-table {
+        display: inline-block;
+        color: var(--primary-highlighted-text);
+        width: 40em;
+        max-width: 80vw;
+        margin-right: 2em;
+        margin-bottom: 1em;
+        border-bottom: 1px solid var(--primary-highlighted-text);
+        font-size: 1em;
+      }
+      td {
+        font-size: min(3vw, 1em);
+        min-width: 10em;
+        padding: 5px;
+      }
+      .nav-voice {
+        display: inline-block;
+        padding: 1em;
+        border: 1px solid var(--primary-border-color);
+        cursor: pointer;
+        user-select: none;
+        min-width: 50px;
+        width: 6vw;
+        max-width: 150px;
+        text-align: center;
+        background: white;
+      }
+      .nav-voice:hover {
+        background: #f1f1f1;
+      }
+      .nav-voice:active {
+        background: #d6d6d6;
+      }
+      .inline-star {
+        height: 1em;
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 1em;
+        width: 100vw;
+        font-size: min(3vw, 1em);
+        background: var(--primary-toolbar-background);
+        color: var(--primary-title-font-color);
+        border-bottom: 1px solid var(--primary-border-color);
+        border-top: 1px solid var(--primary-border-color);
+      }
+      .content {
+        padding-bottom: 3em;
+      }
+      .self-desc {
+        width: 85vw;
+        max-width: 1600px;
+        line-height: 20px;
+        font-size: min(3.5vw, 1em);
+      }
+    </style>
 
-		
-			var WORK_EXP = [
-				[
-				"Avvale S.p.A.",
-				"Senior Developer and Front-End technical leader.", 
-				"Nov 2023 / Nov 2023",
-				"Plenitude OPS Event", 
-				"ENI S.p.A.", 
-				"Utilities", 
-				"We developed a data entry system that allows management for different business processes using the Microsoft Power Platform.",
-				"PowerApps, Dataverse and PowerAutomate",
-				],
-				[
-				"Avvale S.p.A.",
-				"Senior Developer and Front-End technical leader.", 
-				"Sep 2023 / Nov 2023",
-				"Plenitude Easy Production", 
-				"ENI S.p.A.", 
-				"Utilities", 
-				"We developed a data entry system that allows management for different business processes using the Microsoft Power Platform..",
-				"PowerApps, Dataverse and PowerAutomate",
-				],
-				[
-				"Avvale S.p.A.",
-				"Senior Developer and Front-End technical leader.", 
-				"April 2023 / Sep 2023",
-				"FacileFlotta", 
-				"SmartFleet", 
-				"Utilities", 
-				"We developed a platform to adress and simplify all the aspects of vehicles management and rental at enterprise level. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies.",
-				"React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services.",
-				],
-				[
-				"Techedge S.p.A.",
-				"Senior Developer and Front-End technical leader.", 
-				"December 2022 / April 2023",
-				"RWTD", 
-				"ENI S.p.A.", 
-				"Utilities", 
-				"We developed a data entry system that allows management of different business processes. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies.",
-				"React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services.",
-				],
-				[
-				"Techedge S.p.A.",
-				"Senior Developer and Front-End technical leader.", 
-				"January 2022 / December 2022",
-				"Docware Drive", 
-				"ENI S.p.A.", 
-				"Utilities", 
-				"We have developed a complex document system for ENI, which provides a series of functions regarding the controlled upload of sensitive files, possibly managed by digital signatures. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies including: (FE) React.js with Fluent UI, (BE) .NET Core, (DB) Mongo DB, Azure Elastic search, Azure Blob storage, Azure cosmos DB, Docker.",
-				"React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services, Azure Elastic search, Azure Blob storage.",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"November 2021 / January 2022",
-				"Datashare", 
-				"Luxottica S.p.A.", 
-				"Utilities", 
-				"We developed a custom Sharepoint solution that uses custom WebParts, a .NET Core BackEnd and some WebJobs to perform secure and reliable datasharing across different hierarchies of the Luxottica personnel.",
-				"React.js, Sharepoint",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"September 2021 / October 2021",
-				"Evolutiva Archiviazione Documentale HR Private (evolution)",
-				"Magazzini Gabrielli S.p.A",
-				"Utilities", 
-				"Enhancement of a previous project on SharePoint. Improved default SharePoint features using custom SharePoint WebParts and Power App powered Forms.",
-				"React.js, Sharepoint, .NET",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"July 2021 / August 2021",
-				"New Grants Tool", 
-				"MBDA ITALIA S.p.A.", 
-				"Aerospace & Defense", 
-				"A React.js dashboard used to edit data inside a variety of excel-like sheets to provide in-browser data manipulation experience.",
-				"React.js, .NET Core, IIS, Bootstrap",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"July 2021 / July 2021",
-				"YES2", 
-				"E.ON Business Solutions S.r.l.", 
-				"Energy", 
-				"A React.js dashboard used to track power consumptions costs for big customers. The portal uses complex Dynamic-Widgeting for page construction, and can be programmed directly from DB side.",
-				"React.js, .NET Core, Bootstrap",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"May 2021 / May 2021",
-				"iMOMS", 
-				"SAUDI ARAMCO", 
-				"Energy", 
-				"As SQL expert, i performed fixes and upgrades on misbehaving stored procedures, SQL functions and SQL mailers in the SQL engine. I worked in an international team using Zoom as remote access tool.",
-				"SQL",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"May 2021 / May 2021",
-				"TreeLog", 
-				"Luxottica S.p.A.", 
-				"Fashion & Luxury retail", 
-				"Upgrade and deploy of a dashboard using reverse engeneering from an old ASP project to a responsive React.js based project, which exposes data analysis and data export features.",
-				"React.js, .NET Core, IIS, Bootstrap",
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"February 2021 / April 2021",
-				"Compass Dashboard", 
-				"Luxottica S.p.A.", 
-				"Fashion & Luxury retail", 
-				"Front end development with React.js of a multy functionality dashboard used to reliably track data across multiple countries, using Tailwind as base for styling.",
-				"React.js, Tailwind, Bootstrap"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"March 2021 / March 2021",
-				"Piano dei Conti Unico",
-				"Poste Italiane S.p.A", 
-				"Financial services", 
-				"A PoC for Poste Italiane S.p.A. used to show the potentials of PowerApps combined with PowerAutomate. The App runs inside a MS Teams channel, and provides notifications, emails, and posts as feedback resources.",
-				"MS PowerApps, MS PowerAutomate, MS Teams"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"February 2021 / March 2021",
-				"Archiviazione Documentale - Automation",
-				"Magazzini Gabrielli S.p.A", 
-				"Utilities", 
-				"A set of complex automated flows powered by MS PowerAutomate tp securely and reliably orchestrate a wide variety of API services.",
-				"MS PowerAutomate"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"September 2020 / March 2021",
-				"Archiviazione Documentale - HR Private",
-				"Magazzini Gabrielli S.p.A", 
-				"Utilities", 
-				"App Service development of a document archiviation system to perform complex data manipuation and secure archiviation on third party elements. All hosted on Azure Cloud.",
-				"C#, ASP.NET, Azure, SharePoint"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"Noveber 2020 / February 2021",
-				"WinAutomation Workflow",
-				"Ferrero S.p.A", 
-				"Utilities", 
-				"I used MS WinAutomation to produce two complex automated tasks (recurrent and non recurrent) used to combine, manipulate, process and update sensitive information about user's feedback about Ferrero's services.",
-				"MS WinAutomation"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"February 2020 / May 2020",
-				"R&D Timesheet",
-				"Recordati S.p.A", 
-				"Health care & Life sciences", 
-				"Development of an App used to provide a wide set of services including a worked hours tracking system and product classifications over different departments.",
-				"MS PowerApps"
-				],
-				[
-				"Techedge S.p.A.",
-				"Developer", 
-				"February 2020 / May 2020",
-				"Colmaster",
-				"Energy Team Service S.R.L.", 
-				"Power Management", 
-				"Develop of a Xamarin.Forms App used to track energy consumption from heating systems, using Push Notifications to alert users of any issue with their real estate units.",
-				"Xamarin.Forms"
-				],
-				[
-				"Poste Italiane S.p.A.",
-				"DevOps Engineer", 
-				"August 2019 / October 2019",
-				"OpenShift DevOps",
-				"-", 
-				"DevOps", 
-				"Implementation of Jenkins pipelines used to monitor, build, archive, and deploy a wide set of applications virtualized on OpenShift.",
-				"OpenShift, Jenkins"
-				],
-				[
-				"SIAE",
-				"Head of software validation team", 
-				"May 2019 / June 2019",
-				"QA Testing Renewall",
-				"-", 
-				"Quality of software", 
-				"I was in charge of coordinating the software quality validation team and coordinator for inter department comunications in matter of QA.",
-				"-"
-				],
-				[
-				"Foneclay S.R.L.",
-				"Developer", 
-				"July 2018 / August 2018",
-				"BlocklyExtension",
-				"-", 
-				"Software innovation", 
-				"We were building a new codeless platform to compile native Android and IOs application using only visual components to produce executable code.",
-				"Blockly, Python, Javascript"
-				],
-				[
-				"Foneclay S.R.L.",
-				"Developer", 
-				"May 2018 / june 2018",
-				"Smart Cable",
-				"Draka", 
-				"Energy", 
-				"We have developed an App to support Draka workers during the process of positioning the smart cables through a system of maps and barcode scanners.",
-				"Ionic Cordova, Angular 4"
-				],
-				[
-				"Foneclay S.R.L.",
-				"Developer", 
-				"January 2018 / February 2018",
-				"-",
-				"Jhonson & Jhonson industriaò LTDA", 
-				"Health care & Life sciences", 
-				"We developed a full stack application used to handle an enrollment for predefined users, using our internal codeless environment as working environment.",
-				"-"
-				],
-				[
-				"Foneclay S.R.L.",
-				"Developer", 
-				"November 2017 / December 2017",
-				"Sanofi - Afrezza",
-				"Sanofi Aventis S.p.A.", 
-				"Health care & Life sciences ", 
-				"A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
-				"Ionic Cordova, Angular 4"
-				],
-				[
-				"Foneclay S.R.L.",
-				"Developer", 
-				"August 2017 / October 2017",
-				"Sanofi - Pompe",
-				"Sanofi Aventis S.p.A.", 
-				"Health care & Life sciences", 
-				"A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
-				"Ionic Cordova, Angular 4"
-				],
-				
-			];
-			
-			function buildWorkExperienceTable(exp){
-				let tableVoices = ["Employer","Role", "Date from / Date to", "Project Title", "Customer", "Sector", "Description", "Main Technologies"];
-				let t = document.createElement("table");
-				t.className = "work-info-table";
-				for(let i = 0; i < tableVoices.length; i++){
-					let r = document.createElement("tr");
-					let td1 = document.createElement("td");
-					let td2 = document.createElement("td");
-					td1.innerHTML = "<strong>"+tableVoices[i]+"</strong>";
-					td2.innerHTML = i < exp.length ? exp[i] : "-";
-					r.appendChild(td1);
-					r.appendChild(td2);
-					t.appendChild(r);
-				}
-				return t;
-			}
-			
-			function toStars(amount){
-				let result = "";
-				for(let i = 0; i < amount; i++){
-					result+= "<img class=\"inline-star\" src=\"./star_full.png\">";
-				}
-				for(let i = amount; i < 5; i++){
-					result+= "<img class=\"inline-star\" src=\"./star_empty.png\">";
-				}
-			
-				return result;
-			}
-			
-			function buildTechSkillsTable(exp){
-				let tableVoices = ["Skill", "Experience"];
-				let t = document.createElement("table");
-				t.className = "work-info-table";
-				for(let i = 0; i < tableVoices.length; i++){
-					let r = document.createElement("tr");
-					let td1 = document.createElement("td");
-					let td2 = document.createElement("td");
-					td1.innerHTML = "<strong>"+tableVoices[i]+"</strong>";
-					let cnt = (i == 0) ? exp[i] : toStars(exp[i]);
-					td2.innerHTML = i < exp.length ? cnt : "-";
-					r.appendChild(td1);
-					r.appendChild(td2);
-					t.appendChild(r);
-				}
-				return t;
-			}
+    <script type="text/javascript">
+      var LANG_SKILLS = [
+        ["C++", 3],
+        ["C", 2],
+        ["C#", 4],
+        ["Typescript", 5],
+        ["VBscript", 1],
+        ["Elixir 1", 1],
+        ["AMPL", 2],
+        ["Java", 3],
+        ["Python 2", 3],
+        ["Python 3", 3],
+        ["HTML", 5],
+        ["Javascript", 5],
+        ["CSS | SCSS", 5],
+        ["SQL", 3],
+        ["BASH", 2],
+      ];
 
-			function buildCertificationTable(exp){
-				let tableVoices = ["Certification", "Certifying entity", "Date"];
-				let t = document.createElement("table");
-				t.className = "work-info-table";
-				for(let i = 0; i < tableVoices.length; i++){
-					let r = document.createElement("tr");
-					let td1 = document.createElement("td");
-					let td2 = document.createElement("td");
-					td1.innerHTML = "<strong>"+tableVoices[i]+"</strong>";
-					let cnt =  exp[i];
-					td2.innerHTML = i < exp.length ? cnt : "-";
-					r.appendChild(td1);
-					r.appendChild(td2);
-					t.appendChild(r);
-				}
-				return t;
-			}
-			
-			function buildCommSkillsTable(exp){
-				let tableVoices = ["Language", "Reading", "Writing", "Listening", "Speaking", "Overhaul level"];
-				let t = document.createElement("table");
-				t.className = "work-info-table";
-				for(let i = 0; i < tableVoices.length; i++){
-					let r = document.createElement("tr");
-					let td1 = document.createElement("td");
-					let td2 = document.createElement("td");
-					td1.innerHTML = "<strong>"+tableVoices[i]+"</strong>";
-					let cnt = (i < 1 || i > 4) ? exp[i] : toStars(exp[i]);
-					td2.innerHTML = i < exp.length ? cnt : "-";
-					r.appendChild(td1);
-					r.appendChild(td2);
-					t.appendChild(r);
-				}
-				return t;
-			}
-		
-			function addPageBreak(){
-				let d = document.createElement("div");
-				d.innerHTML = "<p style=\"page-break-before: always\">";
-				return d;
-			}
-		
-			function createSection(title, legend){
-				let s = document.createElement("div");
-				s.className = "section";
-				
-				let t = document.createElement("div");
-				t.className = "section-title";
-				t.innerHTML = title;
-				s.appendChild(t);
-				
-				if(legend != null){
-					let l = document.createElement("div");
-					l.className = "section-legend";
-					l.innerHTML = legend;
-					s.appendChild(l);				
-				}
+      var DB_SKILLS = [
+        ["Mongo DB", 2],
+        ["Cosmos DB", 3],
+        ["SQL", 3],
+        ["Maria DB", 2],
+      ];
 
-				return s;
-			}
-			
-			function sortTechSkills(a,b){
-			  if (a[1] < b[1]) return 1;
-			  if (a[1] > b[1]) return -1;
-			  return 0;
-			}
-		
-			function getDescNode(){
-				let desc = document.createElement("div");
-				desc.innerHTML = "I'm a passionate programmer. "+
-				"I love diving into problem solving and i always try learn new ways to solve problems. I'm always looking for a chance to learn new technologies and improve my knowledge on different areas. "+
-				"I can work in teams and relate with other coworkers in a constructive way. In the past i have worked using different approcaches, such as Agile, Waterfall or SCRUM. I am dynamic in learing and "+
-				"proficient in managing my time to deliver projects even under huge loads or pressure."+
-				"<p style=\"page-break-before: always\">"+
-				""+
-				""+
-				"<h3>Main roles</h3>"+
-				"I have experience managing a small team and leading it to success. I'm currently the Techincal Leader for FrontEnd and Mobile, and i have "+
-				"some degree of expertise as Project Manager. I also have experience with Azure Cloud and Azure DevOps, expecially when it comes to "+
-				"creating build-release pipelines. I have worked also with the Power Platform (PowerApps, PowerAutomate) and some automation tools like winAutomation. "+
-				""+
-				""+
-				"<h3>Currently looking for</h3>"+
-				"I am looking for spaces of improvement and growth, with particular interest in the field of AI. I am also ready to work hard and learn how to improve my knowledge of Docker. "
-				"";
-				desc.className = "self-desc";
-				return desc;
-			}
-		
-			function initPage(page){
-				document.body.scrollTop = 0;
-				
-				document.getElementById("footer-div").innerHTML = "Last page update: "+document.lastModified;
-				
-				let d = document.getElementById("content-div");
-				while(d.firstChild){
-					d.removeChild(d.firstChild);
-				}
-			
-			
-				if(page == 0){
-					document.getElementById("page-title-div").innerHTML = "Profile";
-					let s = createSection("About me", null);
-					s.appendChild(getDescNode());
-					d.appendChild(s);
-					d.appendChild(addPageBreak());
-				}
-			
-				if(page == 1){
-					document.getElementById("page-title-div").innerHTML = "Jobs";
-					let s = createSection("Work Experience", null);
-					for(let i = 0; i < WORK_EXP.length; i++){
-						s.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
-					}
-					d.appendChild(s);
-					d.appendChild(addPageBreak());
-				}
-				
-				if(page == 2){
-					document.getElementById("page-title-div").innerHTML = "Skills";
+      var CERTS = [
+        ["AZ-204", "Microsoft", "December 2021"],
+        ["PL-400", "Microsoft", "June 2021"],
+      ];
 
-					LANG_SKILLS.sort(sortTechSkills);
-					FRAM_SKILLS.sort(sortTechSkills);
-					DB_SKILLS.sort(sortTechSkills);
+      var FRAM_SKILLS = [
+        [".NET Framework", 4],
+        [".NET Core", 4],
+        ["React.js", 5],
+        ["Angular4", 3],
+        ["Bootstrap", 3],
+        ["Spring", 1],
+        ["Azure Devops", 4],
+        ["Mongo Atlas", 2],
+        ["Junit", 2],
+        ["Openshift", 1],
+        ["Docker", 1],
+        ["Azure Cloud", 3],
+        ["AWS", 2],
+        ["Microsoft PowerApps", 4],
+        ["Microsoft Flow", 4],
+        ["WinAutomation", 1],
+      ];
 
-					let techlegend = "Experience legend:<br>"+toStars(1)+": 1-12 months<br>"+toStars(2)+": 1-2 years<br>"+toStars(3)+": 2-3 years<br>"+toStars(4)+": 3-4 years<br>"+toStars(5)+": 4 or more years";
-					let commlegend = "Level legend:<br>"+toStars(1)+": Still learning<br>"+toStars(2)+": Barely able<br>"+toStars(3)+": Good<br>"+toStars(4)+": Smooth<br>"+toStars(5)+": Excellent";
+      var COMM_SKILLS = [
+        ["Itaian", 5, 5, 5, 5, "Mother tongue"],
+        ["English", 4, 4, 4, 3, "B2"],
+      ];
 
-					let s = createSection("Programming, Scripting and Markup Languages", techlegend);
-					for(let i = 0; i < LANG_SKILLS.length; i++){
-						s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
-					}
-					d.appendChild(s);
-					d.appendChild(addPageBreak());
+      var WORK_EXP = [
+        [
+          "Avvale S.p.A.",
+          "Full Stack Developer and Cloud Architect.",
+          "Feb 2024 / Mar 2024",
+          "Plenitude OPS Event Part 2",
+          "ENI S.p.A.",
+          "Utilities",
+          "We developed a data entry system that allows management for different business processes using the Microsoft Power Platform.",
+          "PowerApps, Dataverse and PowerAutomate",
+        ],
+        [
+          "Avvale S.p.A.",
+          "DevOps expert",
+          "Feb 2024 / Feb 2024",
+          "Digital evolution",
+          "Q8",
+          "Utilities",
+          "We flawlessy migrated a Q8 legacy Sharepoint site (plus PowerApp and PowerAutomate) to a new solution we provided.",
+          "Sharepoint, Sharegate, PowerApps, PowerAutomate",
+        ],
+        [
+          "Avvale S.p.A.",
+          "Full Stack Developer and Cloud Architect.",
+          "Dec 2023 / Feb 2024",
+          "Digital Workplace",
+          "Q8",
+          "Utilities",
+          "I developed in full autonomy a digital workplace for Q8, which allows the management of the company's internal processes. The system is based on the Microsoft Power Platform and uses a variety of technologies as App inside Microsoft Teams.",
+          "Microsoft Teams, React, .Net, SQL, Azure Cloud, Power Automate, Azure Blob Storage",
+        ],
+        [
+          "Avvale S.p.A.",
+          "Full Stack Developer and Cloud Architect.",
+          "Dec 2023 / Nov 2023",
+          "Plenitude OPS Event",
+          "ENI S.p.A.",
+          "Utilities",
+          "We developed a data entry system that allows management for different business processes using the Microsoft Power Platform.",
+          "PowerApps, Dataverse and PowerAutomate",
+        ],
+        [
+          "Avvale S.p.A.",
+          "PowerPlatform expert (PowerApps, PowerAutomate, Dataverse).",
+          "Nov 2023 / Nov 2023",
+          "Plenitude OPS Event",
+          "ENI S.p.A.",
+          "Utilities",
+          "We developed a data entry system that allows management for different business processes using the Microsoft Power Platform.",
+          "PowerApps, Dataverse and PowerAutomate",
+        ],
+        [
+          "Avvale S.p.A.",
+          "PowerPlatform expert (PowerApps, PowerAutomate, Dataverse).",
+          "Sep 2023 / Nov 2023",
+          "Plenitude Easy Production",
+          "ENI S.p.A.",
+          "Utilities",
+          "We developed a data entry system that allows management for different business processes using the Microsoft Power Platform..",
+          "PowerApps, Dataverse and PowerAutomate",
+        ],
+        [
+          "Avvale S.p.A.",
+          "Senior Developer and Front-End technical leader.",
+          "April 2023 / Sep 2023",
+          "FacileFlotta",
+          "SmartFleet",
+          "Utilities",
+          "We developed a platform to adress and simplify all the aspects of vehicles management and rental at enterprise level. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies.",
+          "React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services.",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Senior Developer and Front-End technical leader.",
+          "December 2022 / April 2023",
+          "RWTD",
+          "ENI S.p.A.",
+          "Utilities",
+          "We developed a data entry system that allows management of different business processes. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies.",
+          "React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services.",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Senior Developer and Front-End technical leader.",
+          "January 2022 / December 2022",
+          "Docware Drive",
+          "ENI S.p.A.",
+          "Utilities",
+          "We have developed a complex document system for ENI, which provides a series of functions regarding the controlled upload of sensitive files, possibly managed by digital signatures. The system follows the micro front-end and micro-services pattern, and uses a variety of technologies including: (FE) React.js with Fluent UI, (BE) .NET Core, (DB) Mongo DB, Azure Elastic search, Azure Blob storage, Azure cosmos DB, Docker.",
+          "React.js, Docker, .NET, Kubernetes, Istio, Cosmos DB, Micro Frontend, Micro Services, Azure Elastic search, Azure Blob storage.",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "November 2021 / January 2022",
+          "Datashare",
+          "Luxottica S.p.A.",
+          "Utilities",
+          "We developed a custom Sharepoint solution that uses custom WebParts, a .NET Core BackEnd and some WebJobs to perform secure and reliable datasharing across different hierarchies of the Luxottica personnel.",
+          "React.js, Sharepoint",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "September 2021 / October 2021",
+          "Evolutiva Archiviazione Documentale HR Private (evolution)",
+          "Magazzini Gabrielli S.p.A",
+          "Utilities",
+          "Enhancement of a previous project on SharePoint. Improved default SharePoint features using custom SharePoint WebParts and Power App powered Forms.",
+          "React.js, Sharepoint, .NET",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "July 2021 / August 2021",
+          "New Grants Tool",
+          "MBDA ITALIA S.p.A.",
+          "Aerospace & Defense",
+          "A React.js dashboard used to edit data inside a variety of excel-like sheets to provide in-browser data manipulation experience.",
+          "React.js, .NET Core, IIS, Bootstrap",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "July 2021 / July 2021",
+          "YES2",
+          "E.ON Business Solutions S.r.l.",
+          "Energy",
+          "A React.js dashboard used to track power consumptions costs for big customers. The portal uses complex Dynamic-Widgeting for page construction, and can be programmed directly from DB side.",
+          "React.js, .NET Core, Bootstrap",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "May 2021 / May 2021",
+          "iMOMS",
+          "SAUDI ARAMCO",
+          "Energy",
+          "As SQL expert, i performed fixes and upgrades on misbehaving stored procedures, SQL functions and SQL mailers in the SQL engine. I worked in an international team using Zoom as remote access tool.",
+          "SQL",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "May 2021 / May 2021",
+          "TreeLog",
+          "Luxottica S.p.A.",
+          "Fashion & Luxury retail",
+          "Upgrade and deploy of a dashboard using reverse engeneering from an old ASP project to a responsive React.js based project, which exposes data analysis and data export features.",
+          "React.js, .NET Core, IIS, Bootstrap",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "February 2021 / April 2021",
+          "Compass Dashboard",
+          "Luxottica S.p.A.",
+          "Fashion & Luxury retail",
+          "Front end development with React.js of a multy functionality dashboard used to reliably track data across multiple countries, using Tailwind as base for styling.",
+          "React.js, Tailwind, Bootstrap",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "March 2021 / March 2021",
+          "Piano dei Conti Unico",
+          "Poste Italiane S.p.A",
+          "Financial services",
+          "A PoC for Poste Italiane S.p.A. used to show the potentials of PowerApps combined with PowerAutomate. The App runs inside a MS Teams channel, and provides notifications, emails, and posts as feedback resources.",
+          "MS PowerApps, MS PowerAutomate, MS Teams",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "February 2021 / March 2021",
+          "Archiviazione Documentale - Automation",
+          "Magazzini Gabrielli S.p.A",
+          "Utilities",
+          "A set of complex automated flows powered by MS PowerAutomate tp securely and reliably orchestrate a wide variety of API services.",
+          "MS PowerAutomate",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "September 2020 / March 2021",
+          "Archiviazione Documentale - HR Private",
+          "Magazzini Gabrielli S.p.A",
+          "Utilities",
+          "App Service development of a document archiviation system to perform complex data manipuation and secure archiviation on third party elements. All hosted on Azure Cloud.",
+          "C#, ASP.NET, Azure, SharePoint",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "Noveber 2020 / February 2021",
+          "WinAutomation Workflow",
+          "Ferrero S.p.A",
+          "Utilities",
+          "I used MS WinAutomation to produce two complex automated tasks (recurrent and non recurrent) used to combine, manipulate, process and update sensitive information about user's feedback about Ferrero's services.",
+          "MS WinAutomation",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "February 2020 / May 2020",
+          "R&D Timesheet",
+          "Recordati S.p.A",
+          "Health care & Life sciences",
+          "Development of an App used to provide a wide set of services including a worked hours tracking system and product classifications over different departments.",
+          "MS PowerApps",
+        ],
+        [
+          "Techedge S.p.A.",
+          "Developer",
+          "February 2020 / May 2020",
+          "Colmaster",
+          "Energy Team Service S.R.L.",
+          "Power Management",
+          "Develop of a Xamarin.Forms App used to track energy consumption from heating systems, using Push Notifications to alert users of any issue with their real estate units.",
+          "Xamarin.Forms",
+        ],
+        [
+          "Poste Italiane S.p.A.",
+          "DevOps Engineer",
+          "August 2019 / October 2019",
+          "OpenShift DevOps",
+          "-",
+          "DevOps",
+          "Implementation of Jenkins pipelines used to monitor, build, archive, and deploy a wide set of applications virtualized on OpenShift.",
+          "OpenShift, Jenkins",
+        ],
+        [
+          "SIAE",
+          "Head of software validation team",
+          "May 2019 / June 2019",
+          "QA Testing Renewall",
+          "-",
+          "Quality of software",
+          "I was in charge of coordinating the software quality validation team and coordinator for inter department comunications in matter of QA.",
+          "-",
+        ],
+        [
+          "Foneclay S.R.L.",
+          "Developer",
+          "July 2018 / August 2018",
+          "BlocklyExtension",
+          "-",
+          "Software innovation",
+          "We were building a new codeless platform to compile native Android and IOs application using only visual components to produce executable code.",
+          "Blockly, Python, Javascript",
+        ],
+        [
+          "Foneclay S.R.L.",
+          "Developer",
+          "May 2018 / june 2018",
+          "Smart Cable",
+          "Draka",
+          "Energy",
+          "We have developed an App to support Draka workers during the process of positioning the smart cables through a system of maps and barcode scanners.",
+          "Ionic Cordova, Angular 4",
+        ],
+        [
+          "Foneclay S.R.L.",
+          "Developer",
+          "January 2018 / February 2018",
+          "-",
+          "Jhonson & Jhonson industriaò LTDA",
+          "Health care & Life sciences",
+          "We developed a full stack application used to handle an enrollment for predefined users, using our internal codeless environment as working environment.",
+          "-",
+        ],
+        [
+          "Foneclay S.R.L.",
+          "Developer",
+          "November 2017 / December 2017",
+          "Sanofi - Afrezza",
+          "Sanofi Aventis S.p.A.",
+          "Health care & Life sciences ",
+          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
+          "Ionic Cordova, Angular 4",
+        ],
+        [
+          "Foneclay S.R.L.",
+          "Developer",
+          "August 2017 / October 2017",
+          "Sanofi - Pompe",
+          "Sanofi Aventis S.p.A.",
+          "Health care & Life sciences",
+          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
+          "Ionic Cordova, Angular 4",
+        ],
+      ];
 
-					let s1 = createSection("Databases",techlegend);
-					for(let i = 0; i < DB_SKILLS.length; i++){
-						s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
-					}
-					d.appendChild(s1);
-					d.appendChild(addPageBreak());
-					
-					let s2 = createSection("Technologies",techlegend);
-					for(let i = 0; i < FRAM_SKILLS.length; i++){
-						s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
-					}
-					d.appendChild(s2);
-					d.appendChild(addPageBreak());
-					
-					let s3 = createSection("Communications Skills",commlegend);
-					for(let i = 0; i < COMM_SKILLS.length; i++){
-						s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
-					}
-					d.appendChild(s3);
-					d.appendChild(addPageBreak());
+      function buildWorkExperienceTable(exp) {
+        let tableVoices = [
+          "Employer",
+          "Role",
+          "Date from / Date to",
+          "Project Title",
+          "Customer",
+          "Sector",
+          "Description",
+          "Main Technologies",
+        ];
+        let t = document.createElement("table");
+        t.className = "work-info-table";
+        for (let i = 0; i < tableVoices.length; i++) {
+          let r = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
+          td2.innerHTML = i < exp.length ? exp[i] : "-";
+          r.appendChild(td1);
+          r.appendChild(td2);
+          t.appendChild(r);
+        }
+        return t;
+      }
 
-					let s4 = createSection("Certifications","Certifications validate my expertise in their respective areas.");
-					for(let i = 0; i < CERTS.length; i++){
-						s4.appendChild(buildCertificationTable(CERTS[i]));
-					}
-					d.appendChild(s4);
-					d.appendChild(addPageBreak());
-				}
-				
-				if(page == 3){
-					document.getElementById("page-title-div").innerHTML = "Curriculum Vitae";
-					
-					
-					let s00 = createSection("About me", null);
-					s00.appendChild(getDescNode());
-					d.appendChild(s00);
-					d.appendChild(addPageBreak());
-					
-					let s0 = createSection("Work Experience", null);
-					for(let i = 0; i < WORK_EXP.length; i++){
-						s0.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
-					}
-					d.appendChild(s0);
-					d.appendChild(addPageBreak());
+      function toStars(amount) {
+        let result = "";
+        for (let i = 0; i < amount; i++) {
+          result += '<img class="inline-star" src="./star_full.png">';
+        }
+        for (let i = amount; i < 5; i++) {
+          result += '<img class="inline-star" src="./star_empty.png">';
+        }
 
-					LANG_SKILLS.sort(sortTechSkills);
-					FRAM_SKILLS.sort(sortTechSkills);
-					DB_SKILLS.sort(sortTechSkills);
+        return result;
+      }
 
-					let techlegend = "Experience legend:<br>"+toStars(1)+": 1-11 months<br>"+toStars(2)+": 1-2 years<br>"+toStars(3)+": 2-3 years<br>"+toStars(4)+": 3-4 years<br>"+toStars(5)+": 4 or more years";
-					let commlegend = "Level legend:<br>"+toStars(1)+": Still learning<br>"+toStars(2)+": Barely able<br>"+toStars(3)+": Good<br>"+toStars(4)+": Smooth<br>"+toStars(5)+": Excellent";
+      function buildTechSkillsTable(exp) {
+        let tableVoices = ["Skill", "Experience"];
+        let t = document.createElement("table");
+        t.className = "work-info-table";
+        for (let i = 0; i < tableVoices.length; i++) {
+          let r = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
+          let cnt = i == 0 ? exp[i] : toStars(exp[i]);
+          td2.innerHTML = i < exp.length ? cnt : "-";
+          r.appendChild(td1);
+          r.appendChild(td2);
+          t.appendChild(r);
+        }
+        return t;
+      }
 
-					let s = createSection("Programming, Scripting and Markup Languages", techlegend);
-					for(let i = 0; i < LANG_SKILLS.length; i++){
-						s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
-					}
-					d.appendChild(s);
-					d.appendChild(addPageBreak());
+      function buildCertificationTable(exp) {
+        let tableVoices = ["Certification", "Certifying entity", "Date"];
+        let t = document.createElement("table");
+        t.className = "work-info-table";
+        for (let i = 0; i < tableVoices.length; i++) {
+          let r = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
+          let cnt = exp[i];
+          td2.innerHTML = i < exp.length ? cnt : "-";
+          r.appendChild(td1);
+          r.appendChild(td2);
+          t.appendChild(r);
+        }
+        return t;
+      }
 
-					let s1 = createSection("Databases",techlegend);
-					for(let i = 0; i < DB_SKILLS.length; i++){
-						s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
-					}
-					d.appendChild(s1);
-					d.appendChild(addPageBreak());
+      function buildCommSkillsTable(exp) {
+        let tableVoices = [
+          "Language",
+          "Reading",
+          "Writing",
+          "Listening",
+          "Speaking",
+          "Overhaul level",
+        ];
+        let t = document.createElement("table");
+        t.className = "work-info-table";
+        for (let i = 0; i < tableVoices.length; i++) {
+          let r = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
+          let cnt = i < 1 || i > 4 ? exp[i] : toStars(exp[i]);
+          td2.innerHTML = i < exp.length ? cnt : "-";
+          r.appendChild(td1);
+          r.appendChild(td2);
+          t.appendChild(r);
+        }
+        return t;
+      }
 
-					let s2 = createSection("Technologies",techlegend);
-					for(let i = 0; i < FRAM_SKILLS.length; i++){
-						s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
-					}
-					d.appendChild(s2);
-					d.appendChild(addPageBreak());
+      function addPageBreak() {
+        let d = document.createElement("div");
+        d.innerHTML = '<p style="page-break-before: always">';
+        return d;
+      }
 
+      function createSection(title, legend) {
+        let s = document.createElement("div");
+        s.className = "section";
 
-					let s3 = createSection("Communications Skills",commlegend);
-					for(let i = 0; i < COMM_SKILLS.length; i++){
-						s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
-					}
+        let t = document.createElement("div");
+        t.className = "section-title";
+        t.innerHTML = title;
+        s.appendChild(t);
 
-					d.appendChild(s3);
-					d.appendChild(addPageBreak());
+        if (legend != null) {
+          let l = document.createElement("div");
+          l.className = "section-legend";
+          l.innerHTML = legend;
+          s.appendChild(l);
+        }
 
-					let s4 = createSection("Certifications","Certifications validate my expertise in their respective areas.");
-					for(let i = 0; i < CERTS.length; i++){
-						s4.appendChild(buildCertificationTable(CERTS[i]));
-					}					
-					d.appendChild(s4);
-					d.appendChild(addPageBreak());
+        return s;
+      }
 
-					setTimeout(downloadAsCV,200);
-				}	
-			}
-			
-			function downloadAsCV(){
-				document.getElementById("nav-tabs-div").style.display = "none";
-				document.getElementById("footer-div").style.display = "none";
-				document.body.style.fontSize = "0.8rem";
-				setTimeout(function(){
-					window.print();
-				},400);  
-			}
-			
-			function setUp(){
-				document.body.ontouchstart = function(){
-					document.getElementById("nav-tabs-div").style.display = "";
-					document.getElementById("footer-div").style.display = "";
-					document.body.style.fontSize = "";
-				};
-				document.body.onclick = function(){
-					document.getElementById("nav-tabs-div").style.display = "";
-					document.getElementById("footer-div").style.display = "";
-					document.body.style.fontSize = "";
-				};
-				document.body.onscroll = function(){
-					document.getElementById("nav-tabs-div").style.display = "";
-					document.getElementById("footer-div").style.display = "";
-					document.body.style.fontSize = "";
-				};
-				
-				initPage(0);
-			}
-		</script>
-	</head>
-	
-	<body onload="setUp();">
-		<div class="nav-tabs" id="nav-tabs-div">
-			<div class="nav-voice" onclick="initPage(0);">Profile</div>
-			<div class="nav-voice" onclick="initPage(1);">Jobs</div>
-			<div class="nav-voice" onclick="initPage(2);">Skills</div>
-			<div class="nav-voice" onclick="initPage(3);">Full CV</div>
-		</div>
-		
-		<div class="page-title" id="page-title-div"></div>
+      function sortTechSkills(a, b) {
+        if (a[1] < b[1]) return 1;
+        if (a[1] > b[1]) return -1;
+        return 0;
+      }
 
-		<div class="section">
-			<div class="section-title">Emanuele Serrao</div>
-			<div class="in-row">
-				<img class="profile-pic" src="./profile.png">
-				<table class="personal-info-table">
-					<tr><td><strong>Born / in</strong></td><td>13 April 1992 / Rome (Italy)</td></tr>
-					<tr><td><strong>Graduated at</strong></td><td>University of Rome Tor Vergata</td></tr>
-					<tr><td><strong>Graduation title</strong></td><td>Master of science in Information Technology Engineering</td></tr>
-					<tr><td><strong>Thesis</strong></td><td>Policies for managing the elasticity of Data Stream Processing applications in a fog environment: an approach based on Reinforcement Learning.</td></tr>
-					<tr><td><strong>Score</strong></td><td>110/110 cum Laude</td></tr>
-					<tr><td><strong>Email</strong></td><td>emanuele.serrao.92@gmail.com</td></tr>
-					<tr><td><strong>Current employer</strong></td><td>Techedge S.p.A.</td></tr>
-					<tr><td><strong>Role</strong></td><td>Senior Developer and Front-End technical leader.</td></tr>
-				</table>
-			</div>
-		</div>
-		<div class="content" id="content-div"></div>
-		<div class="footer" id="footer-div"></div>
-	</body>
+      function getDescNode() {
+        let desc = document.createElement("div");
+        desc.innerHTML =
+          "I'm a passionate programmer. " +
+          "I love diving into problem solving and i always try learn new ways to solve problems. I'm always looking for a chance to learn new technologies and improve my knowledge on different areas. " +
+          "I can work in teams and relate with other coworkers in a constructive way. I have lead projects to success and i have experience in managing a small teams. " +
+          "In the past i have worked using different approcaches, such as Agile, Waterfall or SCRUM. I am a proactive learner and " +
+          "proficient in managing my time to deliver projects even under huge workloads or pressure." +
+          '<p style="page-break-before: always">' +
+          "" +
+          "" +
+          "<h3>Main roles</h3>" +
+          "I'm currently an Azure Cloud Solution Architect and a FullStack Developer, with an expertize on PowerPlatform (PowerAutomate, PowerApps, Dataverse). " +
+          "I also had successfull experiences as a Project Manager on small projects, and i handle the formation of junior resources. " +
+          "I have worked with Azure for a long time and i have a good experience in managing and developing solutions on the Azure Cloud, " +
+          "expecially when it comes to creating and maintaining the build-release pipelines on Azure DevOps. " +
+          "When it comes to mobile development, i have worked with Xamarin.Forms and Ionic Cordova. " +
+          "I have a long time experience over the Power Platform (PowerApps, PowerAutomate) and some automation tools like winAutomation. " +
+          "" +
+          "" +
+          "<h3>Currently looking for</h3>" +
+          "I am looking for spaces of improvement and growth, with particular interest in the field of AI. I am also ready to work hard and learn how to improve my knowledge of Docker. ";
+        ("");
+        desc.className = "self-desc";
+        return desc;
+      }
+
+      function initPage(page) {
+        document.body.scrollTop = 0;
+
+        document.getElementById("footer-div").innerHTML =
+          "Last page update: " + document.lastModified;
+
+        let d = document.getElementById("content-div");
+        while (d.firstChild) {
+          d.removeChild(d.firstChild);
+        }
+
+        if (page == 0) {
+          document.getElementById("page-title-div").innerHTML = "Profile";
+          let s = createSection("About me", null);
+          s.appendChild(getDescNode());
+          d.appendChild(s);
+          d.appendChild(addPageBreak());
+        }
+
+        if (page == 1) {
+          document.getElementById("page-title-div").innerHTML = "Jobs";
+          let s = createSection("Work Experience", null);
+          for (let i = 0; i < WORK_EXP.length; i++) {
+            s.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
+          }
+          d.appendChild(s);
+          d.appendChild(addPageBreak());
+        }
+
+        if (page == 2) {
+          document.getElementById("page-title-div").innerHTML = "Skills";
+
+          LANG_SKILLS.sort(sortTechSkills);
+          FRAM_SKILLS.sort(sortTechSkills);
+          DB_SKILLS.sort(sortTechSkills);
+
+          let techlegend =
+            "Experience legend:<br>" +
+            toStars(1) +
+            ": 1-12 months<br>" +
+            toStars(2) +
+            ": 1-2 years<br>" +
+            toStars(3) +
+            ": 2-3 years<br>" +
+            toStars(4) +
+            ": 3-4 years<br>" +
+            toStars(5) +
+            ": 4 or more years";
+          let commlegend =
+            "Level legend:<br>" +
+            toStars(1) +
+            ": Still learning<br>" +
+            toStars(2) +
+            ": Barely able<br>" +
+            toStars(3) +
+            ": Good<br>" +
+            toStars(4) +
+            ": Smooth<br>" +
+            toStars(5) +
+            ": Excellent";
+
+          let s = createSection(
+            "Programming, Scripting and Markup Languages",
+            techlegend
+          );
+          for (let i = 0; i < LANG_SKILLS.length; i++) {
+            s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
+          }
+          d.appendChild(s);
+          d.appendChild(addPageBreak());
+
+          let s1 = createSection("Databases", techlegend);
+          for (let i = 0; i < DB_SKILLS.length; i++) {
+            s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
+          }
+          d.appendChild(s1);
+          d.appendChild(addPageBreak());
+
+          let s2 = createSection("Technologies", techlegend);
+          for (let i = 0; i < FRAM_SKILLS.length; i++) {
+            s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
+          }
+          d.appendChild(s2);
+          d.appendChild(addPageBreak());
+
+          let s3 = createSection("Communications Skills", commlegend);
+          for (let i = 0; i < COMM_SKILLS.length; i++) {
+            s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
+          }
+          d.appendChild(s3);
+          d.appendChild(addPageBreak());
+
+          let s4 = createSection(
+            "Certifications",
+            "Certifications validate my expertise in their respective areas."
+          );
+          for (let i = 0; i < CERTS.length; i++) {
+            s4.appendChild(buildCertificationTable(CERTS[i]));
+          }
+          d.appendChild(s4);
+          d.appendChild(addPageBreak());
+        }
+
+        if (page == 3) {
+          document.getElementById("page-title-div").innerHTML =
+            "Curriculum Vitae";
+
+          let s00 = createSection("About me", null);
+          s00.appendChild(getDescNode());
+          d.appendChild(s00);
+          d.appendChild(addPageBreak());
+
+          let s0 = createSection("Work Experience", null);
+          for (let i = 0; i < WORK_EXP.length; i++) {
+            s0.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
+          }
+          d.appendChild(s0);
+          d.appendChild(addPageBreak());
+
+          LANG_SKILLS.sort(sortTechSkills);
+          FRAM_SKILLS.sort(sortTechSkills);
+          DB_SKILLS.sort(sortTechSkills);
+
+          let techlegend =
+            "Experience legend:<br>" +
+            toStars(1) +
+            ": 1-11 months<br>" +
+            toStars(2) +
+            ": 1-2 years<br>" +
+            toStars(3) +
+            ": 2-3 years<br>" +
+            toStars(4) +
+            ": 3-4 years<br>" +
+            toStars(5) +
+            ": 4 or more years";
+          let commlegend =
+            "Level legend:<br>" +
+            toStars(1) +
+            ": Still learning<br>" +
+            toStars(2) +
+            ": Barely able<br>" +
+            toStars(3) +
+            ": Good<br>" +
+            toStars(4) +
+            ": Smooth<br>" +
+            toStars(5) +
+            ": Excellent";
+
+          let s = createSection(
+            "Programming, Scripting and Markup Languages",
+            techlegend
+          );
+          for (let i = 0; i < LANG_SKILLS.length; i++) {
+            s.appendChild(buildTechSkillsTable(LANG_SKILLS[i]));
+          }
+          d.appendChild(s);
+          d.appendChild(addPageBreak());
+
+          let s1 = createSection("Databases", techlegend);
+          for (let i = 0; i < DB_SKILLS.length; i++) {
+            s1.appendChild(buildTechSkillsTable(DB_SKILLS[i]));
+          }
+          d.appendChild(s1);
+          d.appendChild(addPageBreak());
+
+          let s2 = createSection("Technologies", techlegend);
+          for (let i = 0; i < FRAM_SKILLS.length; i++) {
+            s2.appendChild(buildTechSkillsTable(FRAM_SKILLS[i]));
+          }
+          d.appendChild(s2);
+          d.appendChild(addPageBreak());
+
+          let s3 = createSection("Communications Skills", commlegend);
+          for (let i = 0; i < COMM_SKILLS.length; i++) {
+            s3.appendChild(buildCommSkillsTable(COMM_SKILLS[i]));
+          }
+
+          d.appendChild(s3);
+          d.appendChild(addPageBreak());
+
+          let s4 = createSection(
+            "Certifications",
+            "Certifications validate my expertise in their respective areas."
+          );
+          for (let i = 0; i < CERTS.length; i++) {
+            s4.appendChild(buildCertificationTable(CERTS[i]));
+          }
+          d.appendChild(s4);
+          d.appendChild(addPageBreak());
+
+          setTimeout(downloadAsCV, 200);
+        }
+      }
+
+      function downloadAsCV() {
+        document.getElementById("nav-tabs-div").style.display = "none";
+        document.getElementById("footer-div").style.display = "none";
+        document.body.style.fontSize = "0.8rem";
+        setTimeout(function () {
+          window.print();
+        }, 400);
+      }
+
+      function setUp() {
+        document.body.ontouchstart = function () {
+          document.getElementById("nav-tabs-div").style.display = "";
+          document.getElementById("footer-div").style.display = "";
+          document.body.style.fontSize = "";
+        };
+        document.body.onclick = function () {
+          document.getElementById("nav-tabs-div").style.display = "";
+          document.getElementById("footer-div").style.display = "";
+          document.body.style.fontSize = "";
+        };
+        document.body.onscroll = function () {
+          document.getElementById("nav-tabs-div").style.display = "";
+          document.getElementById("footer-div").style.display = "";
+          document.body.style.fontSize = "";
+        };
+
+        initPage(0);
+      }
+    </script>
+  </head>
+
+  <body onload="setUp();">
+    <div class="nav-tabs" id="nav-tabs-div">
+      <div class="nav-voice" onclick="initPage(0);">Profile</div>
+      <div class="nav-voice" onclick="initPage(1);">Jobs</div>
+      <div class="nav-voice" onclick="initPage(2);">Skills</div>
+      <div class="nav-voice" onclick="initPage(3);">Full CV</div>
+    </div>
+
+    <div class="page-title" id="page-title-div"></div>
+
+    <div class="section">
+      <div class="section-title">Emanuele Serrao</div>
+      <div class="in-row">
+        <img class="profile-pic" src="./profile.png" />
+        <table class="personal-info-table">
+          <tr>
+            <td><strong>Born / in</strong></td>
+            <td>13 April 1992 / Rome (Italy)</td>
+          </tr>
+          <tr>
+            <td><strong>Graduated at</strong></td>
+            <td>University of Rome Tor Vergata</td>
+          </tr>
+          <tr>
+            <td><strong>Graduation title</strong></td>
+            <td>Master of science in Information Technology Engineering</td>
+          </tr>
+          <tr>
+            <td><strong>Thesis</strong></td>
+            <td>
+              Policies for managing the elasticity of Data Stream Processing
+              applications in a fog environment: an approach based on
+              Reinforcement Learning.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Score</strong></td>
+            <td>110/110 cum Laude</td>
+          </tr>
+          <tr>
+            <td><strong>Email</strong></td>
+            <td>emanuele.serrao.92@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Current employer</strong></td>
+            <td>Techedge S.p.A.</td>
+          </tr>
+          <tr>
+            <td><strong>Role</strong></td>
+            <td>Senior Developer and Front-End technical leader.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="content" id="content-div"></div>
+    <div class="footer" id="footer-div"></div>
+  </body>
 </html>
