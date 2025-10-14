@@ -210,6 +210,15 @@
         font-size: 0.85em;
         font-weight: bold;
       }
+      .stage-tag {
+        background: #FFD700;
+        color: #000;
+        padding: 0.2em 0.5em;
+        border-radius: 4px;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-left: 0.5em;
+      }
       @media print {
         .nav-tabs, .footer {
           display: none !important;
@@ -707,12 +716,13 @@
         return t;
       }
 
-      function buildEmployerSummary(employer, role, date, desc, techsStr) {
+      function buildEmployerSummary(employer, role, date, desc, techsStr, duration) {
         let div = document.createElement("div");
         div.className = "job-summary";
         let header = document.createElement("h3");
         header.className = "job-header";
-        header.innerHTML = `<strong>${employer}</strong> - ${role} (${date})`;
+        let tagHtml = duration < 6 ? ' <span class="stage-tag">Stage</span>' : '';
+        header.innerHTML = `<strong>${employer}</strong>${tagHtml} - ${role} (${date})`;
         div.appendChild(header);
 
         let p = document.createElement("p");
@@ -733,6 +743,52 @@
         }
 
         return div;
+      }
+
+      function buildJobSummarySection() {
+        let s = document.createElement("div");
+        s.className = "section";
+
+        let t = document.createElement("div");
+        t.className = "section-title";
+        t.innerHTML = "Work Experience Summary";
+        s.appendChild(t);
+
+        let employerGroups = {};
+        for (let exp of WORK_EXP) {
+          let emp = exp[0];
+          if (!employerGroups[emp]) employerGroups[emp] = [];
+          employerGroups[emp].push(exp);
+        }
+
+        let employerList = Object.keys(employerGroups);
+        employerList.sort((a, b) => {
+          let maxA = Math.max(...employerGroups[a].map(e => getDateNum(e[2], false)));
+          let maxB = Math.max(...employerGroups[b].map(e => getDateNum(e[2], false)));
+          return maxB - maxA;
+        });
+
+        for (let emp of employerList) {
+          let group = employerGroups[emp];
+          let minS = Math.min(...group.map(e => getDateNum(e[2], true)));
+          let maxE = Math.max(...group.map(e => getDateNum(e[2], false)));
+          let duration = maxE - minS;
+          let overallDate = formatDateNum(minS) + ' / ' + formatDateNum(maxE);
+          let role = group[0][1]; // latest role
+          let projNames = group.slice(0, 3).map(e => e[3]).join(', ');
+          let more = group.length > 3 ? ' and more' : '';
+          let briefDesc = `As a ${role.split('.')[0]}, worked on ${group.length} projects such as ${projNames}${more}.`;
+          let techSet = new Set();
+          group.forEach(e => {
+            if (e[7] && e[7] !== '-') {
+              e[7].split(',').forEach(t => techSet.add(t.trim()));
+            }
+          });
+          let techsStr = Array.from(techSet).join(', ');
+          let summaryDiv = buildEmployerSummary(emp, role, overallDate, briefDesc, techsStr, duration);
+          s.appendChild(summaryDiv);
+        }
+        return s;
       }
 
       function toStars(amount) {
@@ -919,41 +975,7 @@
 
         if (page == 1) {
           document.getElementById("page-title-div").innerHTML = "Jobs";
-          let s = createSection("Work Experience Summary", null);
-
-          let employerGroups = {};
-          for (let exp of WORK_EXP) {
-            let emp = exp[0];
-            if (!employerGroups[emp]) employerGroups[emp] = [];
-            employerGroups[emp].push(exp);
-          }
-
-          let employerList = Object.keys(employerGroups);
-          employerList.sort((a, b) => {
-            let maxA = Math.max(...employerGroups[a].map(e => getDateNum(e[2], false)));
-            let maxB = Math.max(...employerGroups[b].map(e => getDateNum(e[2], false)));
-            return maxB - maxA;
-          });
-
-          for (let emp of employerList) {
-            let group = employerGroups[emp];
-            let minS = Math.min(...group.map(e => getDateNum(e[2], true)));
-            let maxE = Math.max(...group.map(e => getDateNum(e[2], false)));
-            let overallDate = formatDateNum(minS) + ' / ' + formatDateNum(maxE);
-            let role = group[0][1]; // latest role
-            let projNames = group.slice(0, 3).map(e => e[3]).join(', ');
-            let more = group.length > 3 ? ' and more' : '';
-            let briefDesc = `As a ${role.split('.')[0]}, worked on ${group.length} projects such as ${projNames}${more}.`;
-            let techSet = new Set();
-            group.forEach(e => {
-              if (e[7] && e[7] !== '-') {
-                e[7].split(',').forEach(t => techSet.add(t.trim()));
-              }
-            });
-            let techsStr = Array.from(techSet).join(', ');
-            let summaryDiv = buildEmployerSummary(emp, role, overallDate, briefDesc, techsStr);
-            s.appendChild(summaryDiv);
-          }
+          let s = buildJobSummarySection();
           d.appendChild(s);
           d.appendChild(addPageBreak());
         }
@@ -1049,6 +1071,10 @@
           let s00 = createSection("About me", null);
           s00.appendChild(getDescNode());
           d.appendChild(s00);
+          d.appendChild(addPageBreak());
+
+          let s01 = buildJobSummarySection();
+          d.appendChild(s01);
           d.appendChild(addPageBreak());
 
           let s0 = createSection("Work Experience", null);
