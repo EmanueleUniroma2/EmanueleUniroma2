@@ -701,41 +701,6 @@
         ["English", 4, 4, 4, 3, "B2"],
       ];
 
-      function buildWorkExperienceTable(exp) {
-        let tableVoices = [
-          "Employer",
-          "Role",
-          "Date from / Date to",
-          "Project Title",
-          "Customer",
-          "Sector",
-          "Description",
-          "Main Technologies",
-        ];
-        let t = document.createElement("table");
-        t.className = "work-info-table";
-        let thead = document.createElement("thead");
-        let tbhead = document.createElement("tr");
-        tableVoices.forEach(voice => {
-          let th = document.createElement("th");
-          th.innerHTML = voice;
-          tbhead.appendChild(th);
-        });
-        thead.appendChild(tbhead);
-        t.appendChild(thead);
-        let tbody = document.createElement("tbody");
-        let tr = document.createElement("tr");
-        exp.forEach((item, i) => {
-          let td = document.createElement("td");
-          if (i === 1) td.innerHTML = "<strong>" + item + "</strong>";
-          else td.innerHTML = item;
-          tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-        t.appendChild(tbody);
-        return t;
-      }
-
       function buildEmployerSummary(employer, role, date, desc, techsStr, duration) {
         let div = document.createElement("div");
         div.className = "job-summary";
@@ -809,6 +774,62 @@
           s.appendChild(summaryDiv);
         }
         return s;
+      }
+
+      function buildGroupedWorkExperience(s) {
+        let employerGroups = {};
+        for (let exp of WORK_EXP) {
+          let emp = exp[0];
+          if (!employerGroups[emp]) employerGroups[emp] = [];
+          employerGroups[emp].push(exp);
+        }
+
+        let employerList = Object.keys(employerGroups);
+        employerList.sort((a, b) => {
+          let maxA = Math.max(...employerGroups[a].map(e => getDateNum(e[2], false)));
+          let maxB = Math.max(...employerGroups[b].map(e => getDateNum(e[2], false)));
+          return maxB - maxA;
+        });
+
+        let tableVoices = ["Employer", "Role", "Date from / Date to", "Project Title", "Customer", "Sector", "Description", "Main Technologies"];
+
+        for (let emp of employerList) {
+          let group = employerGroups[emp];
+          group.sort((a, b) => getDateNum(b[2], false) - getDateNum(a[2], false));
+
+          let t = document.createElement("table");
+          t.className = "work-info-table";
+          let thead = document.createElement("thead");
+          let tbhead = document.createElement("tr");
+          tableVoices.forEach(voice => {
+            let th = document.createElement("th");
+            th.innerHTML = voice;
+            tbhead.appendChild(th);
+          });
+          thead.appendChild(tbhead);
+          t.appendChild(thead);
+          let tbody = document.createElement("tbody");
+          let first = true;
+          for (let proj of group) {
+            let tr = document.createElement("tr");
+            if (first) {
+              let tdEmp = document.createElement("td");
+              tdEmp.rowSpan = group.length;
+              tdEmp.innerHTML = emp;
+              tr.appendChild(tdEmp);
+              first = false;
+            }
+            for (let i = 1; i < 8; i++) {
+              let td = document.createElement("td");
+              if (i === 1) td.innerHTML = "<strong>" + proj[i] + "</strong>";
+              else td.innerHTML = proj[i];
+              tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+          }
+          t.appendChild(tbody);
+          s.appendChild(t);
+        }
       }
 
       function toStars(amount) {
@@ -1003,9 +1024,7 @@
         if (page == 2) {
           document.getElementById("page-title-div").innerHTML = "Jobs - detailed";
           let s = createSection("Work Experience", null);
-          for (let i = 0; i < WORK_EXP.length; i++) {
-            s.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
-          }
+          buildGroupedWorkExperience(s);
           d.appendChild(s);
           d.appendChild(addPageBreak());
         }
@@ -1098,9 +1117,7 @@
           d.appendChild(addPageBreak());
 
           let s0 = createSection("Work Experience", null);
-          for (let i = 0; i < WORK_EXP.length; i++) {
-            s0.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
-          }
+          buildGroupedWorkExperience(s0);
           d.appendChild(s0);
           d.appendChild(addPageBreak());
 
