@@ -32,10 +32,12 @@
         --primary-highlighted-text: rgba(41, 142, 214, 1);
       }
       html {
-        font-family: sans-serif, arial;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       body {
         margin: 0;
+        background-color: #ffffff;
+        color: #333333;
       }
 
       .nav-tabs {
@@ -47,7 +49,10 @@
         background: var(--primary-toolbar-background);
         color: var(--primary-title-font-color);
         border-bottom: 1px solid var(--primary-border-color);
-        border-top: 1px solid var(--primary-border-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
       }
       .page-title {
         font-size: min(8vw, 2em);
@@ -55,21 +60,29 @@
         margin: 1em;
         margin-top: 2.5em;
         margin-bottom: 0;
+        text-align: center;
       }
       .section-title {
         font-size: min(6vw, 1.5em);
         color: var(--primary-title-font-color);
         margin-bottom: 1em;
+        border-bottom: 2px solid var(--primary-highlighted-text);
+        padding-bottom: 0.5em;
       }
       .section-legend {
         margin-top: -1.5em;
         font-size: min(2.5vw, 1em);
         margin-bottom: 1.5em;
         margin-left: 0.2em;
+        font-style: italic;
+        color: #666;
       }
       .section {
         margin: 1em;
         padding: 1em;
+        background: #fafafa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       .profile-pic {
         width: min(20vw, 200px);
@@ -80,39 +93,56 @@
         min-height: 110px;
         margin: 1em;
         margin-left: 0;
+        border: 3px solid var(--primary-highlighted-text);
       }
       .personal-info-table {
         display: inline-block;
         color: var(--primary-highlighted-text);
         font-size: 1em;
         max-width: 800px;
+        border-collapse: collapse;
+      }
+      .personal-info-table td {
+        padding: 8px;
+        border-bottom: 1px solid #eee;
       }
       .work-info-table {
-        display: inline-block;
+        display: block;
         color: var(--primary-highlighted-text);
-        width: 40em;
-        max-width: 80vw;
-        margin-right: 2em;
+        width: 100%;
+        max-width: 100vw;
         margin-bottom: 1em;
-        border-bottom: 1px solid var(--primary-highlighted-text);
+        border-collapse: collapse;
         font-size: 1em;
       }
-      td {
+      .work-info-table td {
         font-size: min(3vw, 1em);
         min-width: 10em;
-        padding: 5px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
+      .work-info-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .work-info-table th {
+        background-color: var(--primary-highlighted-text);
+        color: white;
+        padding: 12px;
+        text-align: left;
       }
       .nav-voice {
         display: inline-block;
-        padding: 1em;
+        padding: 1em 1.5em;
         border: 1px solid var(--primary-border-color);
         cursor: pointer;
         user-select: none;
         min-width: 50px;
-        width: 6vw;
-        max-width: 150px;
         text-align: center;
         background: white;
+        transition: background 0.3s;
+        flex: 1;
+        max-width: none;
       }
       .nav-voice:hover {
         background: #f1f1f1;
@@ -134,76 +164,66 @@
         color: var(--primary-title-font-color);
         border-bottom: 1px solid var(--primary-border-color);
         border-top: 1px solid var(--primary-border-color);
+        text-align: center;
       }
       .content {
         padding-bottom: 3em;
+        min-height: calc(100vh - 200px);
       }
       .self-desc {
         width: 85vw;
         max-width: 1600px;
-        line-height: 20px;
+        line-height: 1.6;
         font-size: min(3.5vw, 1em);
+        text-align: justify;
+      }
+      .job-summary {
+        margin-bottom: 1.5em;
+        padding: 1.5em;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      .job-header {
+        margin: 0 0 0.5em 0;
+        color: var(--primary-highlighted-text);
+      }
+      .job-desc {
+        margin: 0.5em 0 1em 0;
+        font-size: 0.95em;
+        color: #555;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+      }
+      .tech-tag {
+        background: var(--primary-highlighted-text);
+        color: white;
+        padding: 0.3em 0.6em;
+        border-radius: 4px;
+        font-size: 0.85em;
+        font-weight: bold;
+      }
+      @media print {
+        .nav-tabs, .footer {
+          display: none !important;
+        }
+        body {
+          font-size: 0.8rem;
+        }
+        .section {
+          box-shadow: none;
+          background: white;
+          margin: 0;
+          padding: 0.5em;
+        }
       }
     </style>
 
     <script type="text/javascript">
-      var LANG_SKILLS = [
-        ["C++", 3],
-        ["C", 2],
-        ["C#", 4],
-        ["Kotlin", 3],
-        ["Typescript", 5],
-        ["VBscript", 1],
-        ["Elixir 1", 1],
-        ["AMPL", 2],
-        ["Java", 3],
-        ["Python 2", 3],
-        ["Python 3", 3],
-        ["HTML", 5],
-        ["Javascript", 5],
-        ["CSS | SCSS", 5],
-        ["SQL", 3],
-        ["BASH", 2],
-      ];
-
-      var DB_SKILLS = [
-        ["Mongo DB", 2],
-        ["Cosmos DB", 3],
-        ["SQL", 3],
-        ["Maria DB", 2],
-      ];
-
-      var CERTS = [
-        ["AZ-204", "Microsoft", "December 2021"],
-        ["PL-400", "Microsoft", "Jun 2021"],
-      ];
-
-      var FRAM_SKILLS = [
-        [".NET Framework", 4],
-        [".NET Core", 4],
-        ["React.js", 5],
-        ["Angular4", 3],
-        ["Terraform", 1],
-        ["Bootstrap", 3],
-        ["Spring", 2],
-        ["WebFlux", 1],
-        ["Azure Devops", 4],
-        ["Mongo Atlas", 2],
-        ["Junit", 2],
-        ["Openshift", 1],
-        ["Docker", 1],
-        ["Azure Cloud", 3],
-        ["AWS", 2],
-        ["Microsoft PowerApps", 4],
-        ["Microsoft Flow", 4],
-        ["WinAutomation", 1],
-      ];
-
-      var COMM_SKILLS = [
-        ["Itaian", 5, 5, 5, 5, "Mother tongue"],
-        ["English", 4, 4, 4, 3, "B2"],
-      ];
-
       var WORK_EXP = [
         [
           "BVTech S.p.A.",
@@ -528,13 +548,70 @@
         [
           "DOM-INO LABS s.r.l",
           "Full Stack Developer",
-          "Gannuary 2016 / August 2016",
+          "January 2016 / August 2016",
           "Reventino",
           "DOM-INO LABS s.r.l",
           "Health care & Life sciences",
           "A full-stack application application used in RSAs to track the health status of patients and to provide a set of services to the staff. The system uses a set of arduino sentinels with sensors wich send realtime values to a central server that can be accessed by operators using web browsers or mobile phones.",
           "React.js, Arduino, Node.js, MariaDB, Express.js",
         ],
+      ];
+
+      var LANG_SKILLS = [
+        ["C++", 3],
+        ["C", 2],
+        ["C#", 4],
+        ["Kotlin", 3],
+        ["Typescript", 5],
+        ["VBscript", 1],
+        ["Elixir 1", 1],
+        ["AMPL", 2],
+        ["Java", 3],
+        ["Python 2", 3],
+        ["Python 3", 3],
+        ["HTML", 5],
+        ["Javascript", 5],
+        ["CSS | SCSS", 5],
+        ["SQL", 3],
+        ["BASH", 2],
+      ];
+
+      var DB_SKILLS = [
+        ["Mongo DB", 2],
+        ["Cosmos DB", 3],
+        ["SQL", 3],
+        ["Maria DB", 2],
+      ];
+
+      var CERTS = [
+        ["AZ-204", "Microsoft", "December 2021"],
+        ["PL-400", "Microsoft", "Jun 2021"],
+      ];
+
+      var FRAM_SKILLS = [
+        [".NET Framework", 4],
+        [".NET Core", 4],
+        ["React.js", 5],
+        ["Angular4", 3],
+        ["Terraform", 1],
+        ["Bootstrap", 3],
+        ["Spring", 2],
+        ["WebFlux", 1],
+        ["Azure Devops", 4],
+        ["Mongo Atlas", 2],
+        ["Junit", 2],
+        ["Openshift", 1],
+        ["Docker", 1],
+        ["Azure Cloud", 3],
+        ["AWS", 2],
+        ["Microsoft PowerApps", 4],
+        ["Microsoft Flow", 4],
+        ["WinAutomation", 1],
+      ];
+
+      var COMM_SKILLS = [
+        ["Italian", 5, 5, 5, 5, "Mother tongue"],
+        ["English", 4, 4, 4, 3, "B2"],
       ];
 
       function buildWorkExperienceTable(exp) {
@@ -550,17 +627,62 @@
         ];
         let t = document.createElement("table");
         t.className = "work-info-table";
-        for (let i = 0; i < tableVoices.length; i++) {
-          let r = document.createElement("tr");
-          let td1 = document.createElement("td");
-          let td2 = document.createElement("td");
-          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
-          td2.innerHTML = i < exp.length ? exp[i] : "-";
-          r.appendChild(td1);
-          r.appendChild(td2);
-          t.appendChild(r);
-        }
+        let thead = document.createElement("thead");
+        let tbhead = document.createElement("tr");
+        tableVoices.forEach(voice => {
+          let th = document.createElement("th");
+          th.innerHTML = voice;
+          tbhead.appendChild(th);
+        });
+        thead.appendChild(tbhead);
+        t.appendChild(thead);
+        let tbody = document.createElement("tbody");
+        let tr = document.createElement("tr");
+        exp.forEach((item, i) => {
+          let td = document.createElement("td");
+          if (i === 1) td.innerHTML = "<strong>" + item + "</strong>";
+          else td.innerHTML = item;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+        t.appendChild(tbody);
         return t;
+      }
+
+      function buildJobSummary(exp) {
+        let div = document.createElement("div");
+        div.className = "job-summary";
+        let employer = exp[0];
+        let role = exp[1];
+        let date = exp[2];
+        let desc = exp[6];
+        let techsStr = exp[7] || "";
+        let techs = techsStr.split(/,\s*/).filter(t => t.trim());
+
+        let header = document.createElement("h4");
+        header.className = "job-header";
+        header.innerHTML = employer + " - " + role + " (" + date + ")";
+        div.appendChild(header);
+
+        let briefDesc = "As a " + role.split(".")[0] + ", " + desc.split(".")[0] + ".";
+        let p = document.createElement("p");
+        p.className = "job-desc";
+        p.innerHTML = briefDesc;
+        div.appendChild(p);
+
+        if (techs.length > 0) {
+          let tags = document.createElement("div");
+          tags.className = "tech-tags";
+          techs.forEach(t => {
+            let span = document.createElement("span");
+            span.className = "tech-tag";
+            span.innerHTML = t.trim();
+            tags.appendChild(span);
+          });
+          div.appendChild(tags);
+        }
+
+        return div;
       }
 
       function toStars(amount) {
@@ -579,17 +701,33 @@
         let tableVoices = ["Skill", "Experience"];
         let t = document.createElement("table");
         t.className = "work-info-table";
-        for (let i = 0; i < tableVoices.length; i++) {
-          let r = document.createElement("tr");
-          let td1 = document.createElement("td");
-          let td2 = document.createElement("td");
-          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
-          let cnt = i == 0 ? exp[i] : toStars(exp[i]);
-          td2.innerHTML = i < exp.length ? cnt : "-";
-          r.appendChild(td1);
-          r.appendChild(td2);
-          t.appendChild(r);
-        }
+        let thead = document.createElement("thead");
+        let tbhead = document.createElement("tr");
+        tableVoices.forEach(voice => {
+          let th = document.createElement("th");
+          th.innerHTML = voice;
+          tbhead.appendChild(th);
+        });
+        thead.appendChild(tbhead);
+        t.appendChild(thead);
+        let tbody = document.createElement("tbody");
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerHTML = "<strong>" + tableVoices[0] + "</strong>";
+        tr.appendChild(td1);
+        let td2 = document.createElement("td");
+        td2.innerHTML = exp[0];
+        tr.appendChild(td2);
+        tbody.appendChild(tr);
+        let tr2 = document.createElement("tr");
+        let td3 = document.createElement("td");
+        td3.innerHTML = "<strong>" + tableVoices[1] + "</strong>";
+        tr2.appendChild(td3);
+        let td4 = document.createElement("td");
+        td4.innerHTML = toStars(exp[1]);
+        tr2.appendChild(td4);
+        tbody.appendChild(tr2);
+        t.appendChild(tbody);
         return t;
       }
 
@@ -597,17 +735,24 @@
         let tableVoices = ["Certification", "Certifying entity", "Date"];
         let t = document.createElement("table");
         t.className = "work-info-table";
-        for (let i = 0; i < tableVoices.length; i++) {
-          let r = document.createElement("tr");
-          let td1 = document.createElement("td");
-          let td2 = document.createElement("td");
-          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
-          let cnt = exp[i];
-          td2.innerHTML = i < exp.length ? cnt : "-";
-          r.appendChild(td1);
-          r.appendChild(td2);
-          t.appendChild(r);
-        }
+        let thead = document.createElement("thead");
+        let tbhead = document.createElement("tr");
+        tableVoices.forEach(voice => {
+          let th = document.createElement("th");
+          th.innerHTML = voice;
+          tbhead.appendChild(th);
+        });
+        thead.appendChild(tbhead);
+        t.appendChild(thead);
+        let tbody = document.createElement("tbody");
+        let tr = document.createElement("tr");
+        exp.forEach(item => {
+          let td = document.createElement("td");
+          td.innerHTML = item;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+        t.appendChild(tbody);
         return t;
       }
 
@@ -622,17 +767,26 @@
         ];
         let t = document.createElement("table");
         t.className = "work-info-table";
-        for (let i = 0; i < tableVoices.length; i++) {
-          let r = document.createElement("tr");
-          let td1 = document.createElement("td");
-          let td2 = document.createElement("td");
-          td1.innerHTML = "<strong>" + tableVoices[i] + "</strong>";
-          let cnt = i < 1 || i > 4 ? exp[i] : toStars(exp[i]);
-          td2.innerHTML = i < exp.length ? cnt : "-";
-          r.appendChild(td1);
-          r.appendChild(td2);
-          t.appendChild(r);
-        }
+        let thead = document.createElement("thead");
+        let tbhead = document.createElement("tr");
+        tableVoices.forEach(voice => {
+          let th = document.createElement("th");
+          th.innerHTML = voice;
+          tbhead.appendChild(th);
+        });
+        thead.appendChild(tbhead);
+        t.appendChild(thead);
+        let tbody = document.createElement("tbody");
+        let tr = document.createElement("tr");
+        tableVoices.forEach((_, i) => {
+          let td = document.createElement("td");
+          if (i === 0) td.innerHTML = "<strong>" + exp[0] + "</strong>";
+          else if (i <= 4) td.innerHTML = toStars(exp[i]);
+          else td.innerHTML = exp[5];
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+        t.appendChild(tbody);
         return t;
       }
 
@@ -715,6 +869,16 @@
 
         if (page == 1) {
           document.getElementById("page-title-div").innerHTML = "Jobs";
+          let s = createSection("Work Experience Summary", null);
+          for (let i = 0; i < WORK_EXP.length; i++) {
+            s.appendChild(buildJobSummary(WORK_EXP[i]));
+          }
+          d.appendChild(s);
+          d.appendChild(addPageBreak());
+        }
+
+        if (page == 2) {
+          document.getElementById("page-title-div").innerHTML = "Jobs - detailed";
           let s = createSection("Work Experience", null);
           for (let i = 0; i < WORK_EXP.length; i++) {
             s.appendChild(buildWorkExperienceTable(WORK_EXP[i]));
@@ -723,7 +887,7 @@
           d.appendChild(addPageBreak());
         }
 
-        if (page == 2) {
+        if (page == 3) {
           document.getElementById("page-title-div").innerHTML = "Skills";
 
           LANG_SKILLS.sort(sortTechSkills);
@@ -797,7 +961,7 @@
           d.appendChild(addPageBreak());
         }
 
-        if (page == 3) {
+        if (page == 4) {
           document.getElementById("page-title-div").innerHTML =
             "Curriculum Vitae";
 
@@ -923,8 +1087,9 @@
     <div class="nav-tabs" id="nav-tabs-div">
       <div class="nav-voice" onclick="initPage(0);">Profile</div>
       <div class="nav-voice" onclick="initPage(1);">Jobs</div>
-      <div class="nav-voice" onclick="initPage(2);">Skills</div>
-      <div class="nav-voice" onclick="initPage(3);">Full CV</div>
+      <div class="nav-voice" onclick="initPage(2);">Jobs - detailed</div>
+      <div class="nav-voice" onclick="initPage(3);">Skills</div>
+      <div class="nav-voice" onclick="initPage(4);">Full CV</div>
     </div>
 
     <div class="page-title" id="page-title-div"></div>
