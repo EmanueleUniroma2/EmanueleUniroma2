@@ -113,14 +113,16 @@
         max-width: 100vw;
         margin-bottom: 1em;
         border-collapse: collapse;
-        font-size: 1em;
+        font-size: 0.8em;
       }
       .work-info-table td {
-        font-size: min(3vw, 1em);
-        min-width: 10em;
-        padding: 12px;
+        font-size: 0.8em;
+        min-width: 8em;
+        padding: 4px 6px;
         border: 1px solid #ddd;
         vertical-align: top;
+        word-break: break-word;
+        word-wrap: break-word;
       }
       .work-info-table tr:nth-child(even) {
         background-color: #f9f9f9;
@@ -128,8 +130,9 @@
       .work-info-table th {
         background-color: var(--primary-highlighted-text);
         color: white;
-        padding: 12px;
+        padding: 8px;
         text-align: left;
+        font-size: 0.8em;
       }
       .nav-voice {
         display: inline-block;
@@ -224,6 +227,61 @@
     </style>
 
     <script type="text/javascript">
+      const monthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const monthMap = {
+        'january':1, 'jan':1, 'jan.':1,
+        'february':2, 'feb':2, 'feb.':2,
+        'march':3, 'mar':3, 'mar.':3,
+        'april':4, 'apr':4, 'apr.':4,
+        'may':5, 'may.':5,
+        'june':6, 'jun':6, 'jun.':6,
+        'july':7, 'jul':7, 'jul.':7,
+        'august':8, 'aug':8, 'aug.':8,
+        'september':9, 'sep':9, 'sep.':9,
+        'october':10, 'oct':10, 'oct.':10,
+        'november':11, 'nov':11, 'nov.':11,
+        'december':12, 'dec':12, 'dec.':12
+      };
+
+      function parseMonth(mStr) {
+        let low = mStr.toLowerCase().replace('.', '').replace(/[^a-z]/g, '');
+        for (let key in monthMap) {
+          if (low.startsWith(key) || low === key) {
+            return monthMap[key];
+          }
+        }
+        return null;
+      }
+
+      function getDateNum(dateStr, isStart) {
+        let parts = dateStr.split(' / ');
+        let dStr = isStart ? parts[0].trim() : (parts[1] || parts[0]).trim();
+        if (dStr === 'Current') {
+          return 2025 * 12 + 10;
+        }
+        let dParts = dStr.split(/\s+/);
+        if (dParts.length < 2) return 0;
+        let mStr = dParts[0];
+        let yStr = dParts[1];
+        let m = parseMonth(mStr);
+        let y = parseInt(yStr);
+        if (isNaN(y) || !m) return 0;
+        return y * 12 + m;
+      }
+
+      function formatDateNum(num) {
+        if (num >= 2025 * 12 + 10) {
+          return 'Current';
+        }
+        let y = Math.floor(num / 12);
+        let m = num % 12;
+        if (m === 0) {
+          m = 12;
+          y--;
+        }
+        return monthAbbr[m - 1] + ' ' + y;
+      }
+
       var WORK_EXP = [
         [
           "BVTech S.p.A.",
@@ -438,7 +496,7 @@
         [
           "Avvale S.p.A.",
           "Developer",
-          "Noveber 2020 / Feb 2021",
+          "November 2020 / Feb 2021",
           "WinAutomation Workflow",
           "Ferrero S.p.A",
           "Utilities",
@@ -510,7 +568,7 @@
           "Developer",
           "Jan 2018 / Feb 2018",
           "-",
-          "Jhonson & Jhonson industriaò LTDA",
+          "Johnson & Johnson Industrial LTDA",
           "Health care & Life sciences",
           "We developed a full stack application used to handle an enrollment for predefined users, using our internal codeless environment as working environment.",
           "-",
@@ -522,7 +580,7 @@
           "Sanofi - Afrezza",
           "Sanofi Aventis S.p.A.",
           "Health care & Life sciences ",
-          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
+          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insulin medicine for patients with diabetes.",
           "Ionic Cordova, Angular 4",
         ],
         [
@@ -532,7 +590,7 @@
           "Sanofi - Pompe",
           "Sanofi Aventis S.p.A.",
           "Health care & Life sciences",
-          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insuline medicine for patients with diabetes.",
+          "A full-stack application in ionic-cordova used to track dosages and symptoms of an experimental insulin medicine for patients with diabetes.",
           "Ionic Cordova, Angular 4",
         ],
         [
@@ -649,31 +707,23 @@
         return t;
       }
 
-      function buildJobSummary(exp) {
+      function buildEmployerSummary(employer, role, date, desc, techsStr) {
         let div = document.createElement("div");
         div.className = "job-summary";
-        let employer = exp[0];
-        let role = exp[1];
-        let date = exp[2];
-        let desc = exp[6];
-        let techsStr = exp[7] || "";
-        let techs = techsStr.split(/,\s*/).filter(t => t.trim());
-
-        let header = document.createElement("h4");
+        let header = document.createElement("h3");
         header.className = "job-header";
-        header.innerHTML = employer + " - " + role + " (" + date + ")";
+        header.innerHTML = `<strong>${employer}</strong> - ${role} (${date})`;
         div.appendChild(header);
 
-        let briefDesc = "As a " + role.split(".")[0] + ", " + desc.split(".")[0] + ".";
         let p = document.createElement("p");
         p.className = "job-desc";
-        p.innerHTML = briefDesc;
+        p.innerHTML = desc;
         div.appendChild(p);
 
-        if (techs.length > 0) {
+        if (techsStr) {
           let tags = document.createElement("div");
           tags.className = "tech-tags";
-          techs.forEach(t => {
+          techsStr.split(',').forEach(t => {
             let span = document.createElement("span");
             span.className = "tech-tag";
             span.innerHTML = t.trim();
@@ -870,8 +920,39 @@
         if (page == 1) {
           document.getElementById("page-title-div").innerHTML = "Jobs";
           let s = createSection("Work Experience Summary", null);
-          for (let i = 0; i < WORK_EXP.length; i++) {
-            s.appendChild(buildJobSummary(WORK_EXP[i]));
+
+          let employerGroups = {};
+          for (let exp of WORK_EXP) {
+            let emp = exp[0];
+            if (!employerGroups[emp]) employerGroups[emp] = [];
+            employerGroups[emp].push(exp);
+          }
+
+          let employerList = Object.keys(employerGroups);
+          employerList.sort((a, b) => {
+            let maxA = Math.max(...employerGroups[a].map(e => getDateNum(e[2], false)));
+            let maxB = Math.max(...employerGroups[b].map(e => getDateNum(e[2], false)));
+            return maxB - maxA;
+          });
+
+          for (let emp of employerList) {
+            let group = employerGroups[emp];
+            let minS = Math.min(...group.map(e => getDateNum(e[2], true)));
+            let maxE = Math.max(...group.map(e => getDateNum(e[2], false)));
+            let overallDate = formatDateNum(minS) + ' / ' + formatDateNum(maxE);
+            let role = group[0][1]; // latest role
+            let projNames = group.slice(0, 3).map(e => e[3]).join(', ');
+            let more = group.length > 3 ? ' and more' : '';
+            let briefDesc = `As a ${role.split('.')[0]}, worked on ${group.length} projects such as ${projNames}${more}.`;
+            let techSet = new Set();
+            group.forEach(e => {
+              if (e[7] && e[7] !== '-') {
+                e[7].split(',').forEach(t => techSet.add(t.trim()));
+              }
+            });
+            let techsStr = Array.from(techSet).join(', ');
+            let summaryDiv = buildEmployerSummary(emp, role, overallDate, briefDesc, techsStr);
+            s.appendChild(summaryDiv);
           }
           d.appendChild(s);
           d.appendChild(addPageBreak());
